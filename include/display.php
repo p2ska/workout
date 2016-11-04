@@ -1,5 +1,16 @@
 <?php
 
+// kas on vaja lisada tänane päev (tühi rida)
+
+$d->query("select * from workout where date = ? limit 1", [ date("Y-m-d") ]);
+
+if (!$d->rows) {
+	$d->query(
+		"insert into workout (date, workout_id, rounds, reps, descr, added) values (?, ?, ?, ?, ?, ?)",
+		[ date("Y-m-d"), 0, 0, 0, "", date("Y-m-d H:i:s") ]
+	);
+}
+
 $d->query("select * from workouts order by sort");
 
 foreach ($d->get_all() as $o) {
@@ -12,8 +23,9 @@ if (isset($p->args[0]) && $p->args[0] == "element") {
 
 	$d->query("select * from workout where workout_id = ? && date = ? order by id desc limit 1", [ $id, $date ]);
 }
-else
+else {
 	$d->query("select * from workout order by date desc, id");
+}
 
 foreach ($d->get_all() as $o) {
 	$workout = $workouts[$o->workout_id]; // siin oleks vaja hoopis sort järgi
@@ -51,11 +63,28 @@ else {
 		$date_width = " style=\"width: ". array_shift($column_widths). "px\"";
 	}
 
+	$row = 0;
+	$last_month = false;
+
 	foreach ($results as $date => $result) {
+		$today = "";
+		$row++;
 		$p->date = $date;
 
 		list($yy, $mm, $dd) = explode("-", $date);
 		$f_date = intval($dd). ". ". $months[intval($mm) - 1];
+		$wd = date("w", mktime(0, 0, 0, $mm, $dd, $yy));
+
+		if ($row > 0 && $row < 3)
+			$today = " today";
+
+		if ($last_month && $last_month != $mm)
+			$today .= " new_month";
+
+		if ($wd == 0 || $wd == 5)
+			echo "<div class=\"weekend results". $today. "\">";
+		else
+			echo "<div class=\"results". $today. "\">";
 
 		echo "<div class=\"value\"". $date_width. ">". $f_date. "</div>";
 
@@ -69,12 +98,15 @@ else {
 			echo results($p, $workouts_id[$w->id], $result, $width);
 		}
 
-		echo "<br clear=\"all\"/>";
+		echo "</div>";
+
+		$last_month = $mm;
 	}
 }
 
 function results($p, $workout, $value, $width = false) {
 	$val = "-";
+	$bg = "";
 
 	if (isset($value[$workout->id])) {
 		//if (isset($value[$workout->id]["descr"]) && $value[$workout->id]["descr"])
@@ -97,10 +129,13 @@ function results($p, $workout, $value, $width = false) {
 	if (!$width)
 		return $val;
 
-	if ($val == "-")
-		$result = "<div id=\"f_". $p->date. "_". $workout->id. "\" class=\"value ". $workout->name. " none\"". ($width ? " style=\"width: ". $width. "px\"" : ""). ">". $val. "</div>";
-	else
-		$result = "<div id=\"f_". $p->date. "_". $workout->id. "\" class=\"value ". $workout->name. "\"". ($width ? " style=\"width: ". $width. "px\"" : ""). ">". $val. "</div>";
+	if ($val == "-" || $val == 0) {
+		$val = "-";
+		$bg = " none";
+	}
+
+	$result = "<div id=\"f_". $p->date. "_". $workout->id. "\" class=\"value ". $workout->name. $bg. "\"";
+	$result.= ($width ? " style=\"width: ". $width. "px\"" : ""). ">". $val. "</div>";
 
 	return $result;
 }

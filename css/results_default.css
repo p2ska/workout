@@ -1,0 +1,148 @@
+#results {
+	position: 			absolute;
+	top: 				400px;
+	margin: 			10px;
+	padding: 			10px;
+	border: 			1px solid #333;
+	border-radius: 		1px 3px 3px 3px;
+	color: 				#ccc;
+	background-color: 	rgba(32, 32, 32, 0.9);
+	clear: 				both;
+}
+
+#results .descr, #results .value {
+	position: 			relative;
+	float: 				left;
+/*	width: 				80px;*/
+	text-align: 		center;
+	margin-bottom: 		1px;
+	margin-right: 		1px;
+	padding: 			5px;
+	padding-left: 		10px;
+	padding-right: 		10px;
+	border: 			1px solid #333;
+	border-radius: 		1px 3px 3px 3px;
+}
+
+#results .results {
+	position: 			relative;
+	clear: 				both;
+}
+
+#results .descr {
+	/*background: 		rgba(255, 255, 255, 0.1);*/
+	color: 				#09f;
+	text-decoration: 	underline;
+}
+
+#results .date {
+	border: 			1px solid #333;
+	background-color: 	#333;
+	width: 				100px;
+}
+
+#results .pull {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .powerpull {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .swing {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .squat {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .biceps {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .triceps {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .push {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .wrist {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .plank {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .pushups {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .bike {
+	border: 			1px solid #333;
+	background-color: 	#333; /*rgba(100, 200, 200, 0.1);*/
+}
+
+#results .route {
+	border: 			1px solid #333;
+	background-color: 	#333;
+	text-align: 		left;
+	width: 				450px;
+}
+
+#results .weight {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .fat {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .stomage {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .chest {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .arm {
+	border: 			1px solid #333;
+	background-color: 	#333;
+}
+
+#results .none {
+	background:			none !important;
+}
+
+#results .weekend {
+	padding-top:		1px;
+	background-color: 	#c62;
+}
+
+#results .today {
+	padding-top:		1px;
+	background-color:	#09f;
+}
+
+#results .new_month {
+	padding-top:		3px;
+	background-color: 	#282;
+}

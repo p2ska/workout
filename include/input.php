@@ -1,12 +1,14 @@
 <h1><?php echo date("j"). ". ". $months[date("n") - 1]; ?></h1>
 <input type="hidden" id="date" value="<?php echo date("Y-m-d"); ?>">
 <hr/>
-	<span id="w1" class="category w1">Kaal</span>
-	<span id="k1" class="category k1">Kätekõverdused</span>
-	<span id="r1" class="category r1">Ratas</span>
-	<span id="s1" class="category s1">Jõutreening 1</span>
-	<span id="s2" class="category s2">Jõutreening 2</span>
-	<span id="p1" class="category p1">Plank</span>
+<div class="categorys">
+	:: <span id="w1" class="category w1">Kaal</span> ::
+	<span id="k1" class="category k1">Kätekõverdused</span> ::
+	<span id="r1" class="category r1">Ratas</span> ::
+	::&nbsp;<span id="s1" class="category s1">Jõutreening 1</span> ::
+	<span id="s2" class="category s2">Jõutreening 2</span> ::
+	<span id="p1" class="category p1">Plank</span> ::
+</div>
 <hr/>
 <div id="workouts"></div>
 <script>

@@ -12,6 +12,10 @@ $o = $d->get_obj();
 if (!isset($o->type))
 	return false;
 
+$d->query("select * from workout where workout_id = ? && reps != 0 order by id desc limit 1", [ $workout ]);
+
+$y = $d->get_obj();
+
 switch ($o->type) {
 	case "rounds_reps":
 		echo "<input type=\"hidden\" id=\"descr\" value=\"\"/>";
@@ -19,8 +23,8 @@ switch ($o->type) {
 		echo "<option value=\"1\">1</option>";
 		echo "<option value=\"2\">2</option>";
 		echo "<option value=\"3\" selected>3</option>";
-		echo "</select><br/>";
-		echo "<input type=\"text\" id=\"reps\"/>";
+		echo "</select> ";
+		echo "<input type=\"text\" id=\"reps\" placeholder=\"". $y->reps. "\"/>";
 
 		break;
 
@@ -28,14 +32,14 @@ switch ($o->type) {
 	case "value":
 		echo "<input type=\"hidden\" id=\"descr\" value=\"\"/>";
 		echo "<input type=\"hidden\" id=\"rounds\" value=\"1\">";
-		echo "<input type=\"text\" id=\"reps\"/>";
+		echo "<input type=\"text\" id=\"reps\" placeholder=\"". $y->reps. "\"/>";
 
 		break;
 
 	case "textarea":
 		echo "<input type=\"hidden\" id=\"rounds\" value=\"1\"/>";
 		echo "<input type=\"hidden\" id=\"reps\" value=\"1\"/>";
-		echo "<textarea id=\"descr\"></textarea>";
+		echo "<textarea id=\"descr\" placeholder=\"". $y->descr. "\"></textarea>";
 
 		break;
 
@@ -47,8 +51,8 @@ switch ($o->type) {
 		echo "<option value=\"3\">3</option>";
 		echo "<option value=\"4\">4</option>";
 		echo "<option value=\"5\">5</option>";
-		echo "</select><br/>";
-		echo "<input type=\"text\" id=\"reps\"/>";
+		echo "</select> ";
+		echo "<input type=\"text\" id=\"reps\" placeholder=\"". $y->reps. "\"/>";
 
 		break;
 

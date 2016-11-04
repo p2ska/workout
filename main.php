@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="js/jquery-ui/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="fonts/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/results_default.css" />
 <title>Work\o/ut</title>
 </head>
 <body>

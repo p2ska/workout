@@ -1,4 +1,6 @@
-var column_widths = false;
+var results_width = false,
+	column_widths = false;
+
 var months = [ "jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember" ];
 
 function header_magic() {
@@ -16,6 +18,8 @@ function header_magic() {
 function get_column_widths() {
 	var w, columns = [];
 
+	results_width = 0;
+
 	$("#results_header .descr").each(function() {
 		w = parseInt($(this).width());
 
@@ -23,7 +27,10 @@ function get_column_widths() {
 			$(this).width(w);
 
 		columns.push(w);
+		results_width += w;
 	});
+
+	results_width += 20 + 18 * 22; // padding+cols*(padding+margin+border)
 
 	column_widths = columns.join("-");
 
@@ -39,6 +46,7 @@ $("#input").on("click", ".workout", function() {
 	$("#workout").load("=workout", { id: id });
 	$(".workout").removeClass("active");
 	$("#workout_" + id).addClass("active");
+	setTimeout(function() { $('input[type="text"],textarea').focus() }, 100);
 });
 
 $("#input").on("click", "#save", function() {
@@ -68,5 +76,6 @@ $(document).ready(function() {
 	$("#input").load("=input");
 	$("#results_header").load("=display/header", function() {
 		$("#results_body").load("=display/body/" + get_column_widths());
+		$("#results").css("min-width", results_width);
 	});
 });

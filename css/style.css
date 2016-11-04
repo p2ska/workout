@@ -23,15 +23,15 @@ html, body {
 	top: 				100px;
 	margin: 			10px;
 	padding: 			10px;
-	width: 				300px;
-	border: 			1px solid #444;
+	width: 				320px;
+	border: 			1px solid #333;
 	border-radius: 		1px 3px 3px 3px;
-	color: 				#eee;
+	color: 				#ccc;
 	background-color: 	rgba(32, 32, 32, 0.9);
 }
 
 #input h1 {
-	color: 				#0099ff;
+	color: 				#09f;
 	font-size: 			17px;
 	margin: 			0px;
 	text-decoration: 	underline;
@@ -51,31 +51,36 @@ html, body {
 }
 
 #input .s1 {
-	color: 				#768233;
+	color: 				#ffa;
 }
 
 #input .s2 {
-	color: 				#322981;
+	color: 				#aff;
 }
 
 #input .k1 {
-	color: 				#981203;
+	color: 				#faa;
 }
 
 #input .p1 {
-	color: 				#329008;
+	color: 				#aaf;
 }
 
 #input .w1 {
-	color: 				#989878;
+	color: 				#faf;
 }
 
 #input .r1 {
-	color: 				#980998;
+	color: 				#afa;
+}
+
+#input .categorys {
+	color: 				#444;
 }
 
 #input .category, #input .workout {
 	cursor: 			pointer;
+	font-size: 			17px;
 }
 
 #input .active {
@@ -87,136 +92,10 @@ html, body {
 	cursor: 			pointer;
 }
 
-#results {
-	position: 			absolute;
-	top: 				400px;
-	margin: 			10px;
-	padding: 			10px;
-	border: 			1px solid #444;
-	border-radius: 		1px 3px 3px 3px;
-	color: 				#eee;
-	background-color: 	rgba(32, 32, 32, 0.9);
-	clear: 				both;
-}
-
-#results .descr, #results .value {
-	position: 			relative;
-	float: 				left;
-/*	width: 				80px;*/
-	text-align: 		center;
-	margin-bottom: 		1px;
-	margin-right: 		1px;
-	padding: 			5px;
-	padding-left: 		10px;
-	padding-right: 		10px;
-	border: 			1px solid #444;
-	border-radius: 		1px 3px 3px 3px;
-}
-
-#results .date {
-	border: 			1px solid #444;
-	width: 				100px;
-}
-
-#results .pull {
-	border: 			1px solid #ee0000;
-	background-color: 	#990000;
-}
-
-#results .powerpull {
-	border: 			1px solid #ee9900;
-	background-color: 	#996600;
-}
-
-#results .swing {
-	border: 			1px solid #0099ee;
-	background-color: 	#006699;
-}
-
-#results .squat {
-	border: 			1px solid #ee0099;
-	background-color: 	#990066;
-}
-
-#results .biceps {
-	border: 			1px solid #9999ee;
-	background-color: 	#666699;
-}
-
-#results .triceps {
-	border: 			1px solid #00ee99;
-	background-color: 	#009966;
-}
-
-#results .push {
-	border: 			1px solid #00eeee;
-	background-color: 	#009999;
-}
-
-#results .wrist {
-	border: 			1px solid #99ee99;
-	background-color: 	#669966;
-}
-
-#results .plank {
-	border: 			1px solid #eeee99;
-	background-color: 	#999966;
-}
-
-#results .pushups {
-	border: 			1px solid #ee00ee;
-	background-color: 	#990099;
-}
-
-#results .bike {
-	border: 			1px solid #99eeee;
-	background-color: 	rgba(100, 200, 200, 0.1);
-}
-
-#results .route {
-	border: 			1px solid #00ee00;
-	background-color: 	#009900;
-	text-align: 		left;
-	width: 				450px;
-}
-
-#results .weight {
-	border: 			1px solid #eeee00;
-	background-color: 	#999900;
-}
-
-#results .fat {
-	border: 			1px solid #ee9966;
-	background-color: 	#997733;
-}
-
-#results .stomage {
-	border: 			1px solid #7799ee;
-	background-color: 	#3366aa;
-}
-
-#results .chest {
-	border: 			1px solid #66eeaa;
-	background-color: 	#229977;
-}
-
-#results .arm {
-	border: 			1px solid #ee99aa;
-	background-color: 	#aa6677;
-}
-
-#results .descr {
-	/*background: 		rgba(255, 255, 255, 0.1);*/
-}
-
-#results .none {
-	background:			none !important;
-}
-
 hr {
 	height: 			1px;
 	border: 			0px;
-	border-bottom: 		1px solid #444;
+	border-bottom: 		1px solid #333;
 	line-height: 		1px;
 	margin: 			0px;
 	margin-bottom: 		10px;
