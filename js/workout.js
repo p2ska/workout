@@ -43,10 +43,42 @@ $("#input").on("click", ".category", function() {
 
 $("#input").on("click", ".workout", function() {
 	var id = $(this).data("id");
-	$("#workout").load("=workout", { id: id });
+
+	$("#workout").load("=input", { id: id });
 	$(".workout").removeClass("active");
 	$("#workout_" + id).addClass("active");
+
 	setTimeout(function() { $('input[type="text"],textarea').focus() }, 100);
+});
+
+$("#results").on("click", ".value", function() {
+	var cell_width = $(this).width();
+	var cell_height = $(this).height() + 6;
+	var cell_content = $(this).html().substring(0, 6);
+
+	if (cell_content != "&nbsp;") {
+		$(this).html("&nbsp;<input type='text' class='edit_cell' style='width: " + cell_width + "px; height: " + cell_height + "px'/>");
+
+		setTimeout(function() { $(".edit_cell").focus() }, 100);
+	}
+});
+
+$("#results").on("focusout", ".edit_cell", function() {
+	var parent = $(this).parent();
+	var cell_id = parent.prop("id");
+	var value = $(this).val();
+
+	$.post("=save", {
+		cell_id:	cell_id,
+		value: 		value
+	}).done(function(result) {
+		if (result != "NOK") {
+			parent.html(result);
+		}
+		else {
+			alert("FAILED");
+		}
+	});
 });
 
 $("#input").on("click", "#save", function() {
@@ -73,7 +105,7 @@ $("#input").on("click", "#save", function() {
 $(document).ready(function() {
 	header_magic();
 
-	$("#input").load("=input");
+	$("#input").load("=workout");
 	$("#results_header").load("=display/header", function() {
 		$("#results_body").load("=display/body/" + get_column_widths());
 		$("#results").css("min-width", results_width);

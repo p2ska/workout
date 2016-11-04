@@ -10,34 +10,87 @@
 	clear: 				both;
 }
 
-#results .descr, #results .value {
-	position: 			relative;
-	float: 				left;
-/*	width: 				80px;*/
-	text-align: 		center;
-	margin-bottom: 		1px;
-	margin-right: 		1px;
-	padding: 			5px;
-	padding-left: 		10px;
-	padding-right: 		10px;
-	border: 			1px solid #333;
-	border-radius: 		1px 3px 3px 3px;
-}
-
 #results .results {
 	position: 			relative;
 	clear: 				both;
 }
 
+#results .results > div {
+    -webkit-transition: background-color 0.2s linear;
+    -moz-transition: 	background-color 0.2s linear;
+    -ms-transition: 	background-color 0.2s linear;
+    -o-transition: 		background-color 0.2s linear;
+    transition: 		background-color 0.2s linear;
+}
+
+#results .results > div:hover {
+	color: 				#ff0;
+}
+
+#results .results:hover > div {
+	background-color: 	rgba(255, 255, 255, 0.1) !important;
+}
+
+#results .descr, #results .value, #results .date {
+	position: 			relative;
+	float: 				left;
+	text-align: 		center;
+	/*margin-top:		1px;
+	margin-right: 		1px;*/
+	margin: 			1px;
+	padding: 			5px;
+	padding-left: 		10px;
+	padding-right: 		10px;
+	border: 			1px solid #333;
+	border-radius: 		1px 3px 3px 3px;
+	overflow: 			hidden;
+}
+
 #results .descr {
-	/*background: 		rgba(255, 255, 255, 0.1);*/
 	color: 				#09f;
+	background: 		rgba(255, 255, 255, 0.1);
 	text-decoration: 	underline;
+}
+
+#results .edit_cell {
+	position: 			absolute;
+	top: 				0px;
+	left: 				0px;
+	padding-left: 		9px;
+	padding-right: 		9px;
+	color: 				#ff0;
+	background-color: 	#333;
+	border: 			1px solid #ff0 !important;
+	border-radius: 		1px 3px 3px 3px;
+	outline: 			hidden;
+}
+
+/* row hovers / indications */
+
+#results .new_month {
+	padding-top:		2px;
+	background-color: 	#282;
+}
+
+#results .weekend {
+	padding-top:		1px;
+	background-color: 	#c62;
+}
+
+#results .today {
+	padding-top:		1px;
+	background-color:	#09f;
+}
+
+/* workout cells */
+
+#results .none {
+	background:			none !important;
 }
 
 #results .date {
 	border: 			1px solid #333;
-	background-color: 	#333;
+	background: 		none !important;
 	width: 				100px;
 }
 
@@ -126,23 +179,4 @@
 #results .arm {
 	border: 			1px solid #333;
 	background-color: 	#333;
-}
-
-#results .none {
-	background:			none !important;
-}
-
-#results .weekend {
-	padding-top:		1px;
-	background-color: 	#c62;
-}
-
-#results .today {
-	padding-top:		1px;
-	background-color:	#09f;
-}
-
-#results .new_month {
-	padding-top:		3px;
-	background-color: 	#282;
 }

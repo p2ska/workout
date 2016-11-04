@@ -7,7 +7,7 @@ $d->query("select * from workout where date = ? limit 1", [ date("Y-m-d") ]);
 if (!$d->rows) {
 	$d->query(
 		"insert into workout (date, workout_id, rounds, reps, descr, added) values (?, ?, ?, ?, ?, ?)",
-		[ date("Y-m-d"), 0, 0, 0, "", date("Y-m-d H:i:s") ]
+		[ date("Y-m-d"), 13, 0, 0, "", date("Y-m-d H:i:s") ]
 	);
 }
 
@@ -89,7 +89,7 @@ else {
 		else
 			echo "<div class=\"results". $today. "\">";
 
-		echo "<div class=\"value\"". $date_width. ">". $f_date. "</div>";
+		echo "<div class=\"date\"". $date_width. ">". $f_date. "</div>";
 
 		$count = 0;
 		$width = false;

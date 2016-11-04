@@ -64,3 +64,16 @@ function compare_strings($str1, $str2, $encoding = false) {
 
     return false;
 }
+
+function clean_input($input, $in_length = 255, $out_length = 255) {
+    $result = "";
+	$allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890-_.";
+
+	$input = substr($input, 0, $in_length);
+
+	for ($a = 0; $a < strlen($input); $a++)
+		if (strpos($allowed, $input[$a]) !== false)
+			$result .= $input[$a];
+
+    return substr($result, 0, $out_length);
+}

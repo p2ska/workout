@@ -1,70 +1,31 @@
-<?php
+<h1><?php echo date("j"). ". ". $months[date("n") - 1]; ?></h1>
+<input type="hidden" id="date" value="<?php echo date("Y-m-d"); ?>">
+<hr/>
+<div class="categorys">
+	:: <span id="w1" class="category w1">Kaal</span> ::
+	<span id="k1" class="category k1">Kätekõverdused</span> ::
+	<span id="r1" class="category r1">Ratas</span> ::
+	::&nbsp;<span id="s1" class="category s1">Jõutreening 1</span> ::
+	<span id="s2" class="category s2">Jõutreening 2</span> ::
+	<span id="p1" class="category p1">Plank</span> ::
+</div>
+<hr/>
+<div id="workouts"></div>
+<script>
+	$("#date").datepicker({
+		dateFormat: "yy-mm-dd",
+		firstDay: 1,
+		onSelect: function() {
+			var ex = $("#date").val().split("-");
+			var picked_date = parseInt(ex[2]) + ". " + months[parseInt(ex[1]) - 1];
 
-if (!isset($_POST["id"]))
-	return false;
+			$("#input > h1").html(picked_date);
+		}
+	});
 
-$workout = intval($_POST["id"]);
+	$("h1").click(function() {
+		$("#date").datepicker("show");
+	});
 
-$d->query("select * from workouts where id = ? limit 1", [ $workout ]);
-
-$o = $d->get_obj();
-
-if (!isset($o->type))
-	return false;
-
-$d->query("select * from workout where workout_id = ? && reps != 0 order by id desc limit 1", [ $workout ]);
-
-if ($d->rows) {
-	$y = $d->get_obj();
-}
-else {
-	$y = new stdClass();
-	$y->reps = $y->descr = "-";
-}
-
-switch ($o->type) {
-	case "rounds_reps":
-		echo "<input type=\"hidden\" id=\"descr\" value=\"\"/>";
-		echo "<select id=\"rounds\">";
-		echo "<option value=\"1\">1</option>";
-		echo "<option value=\"2\">2</option>";
-		echo "<option value=\"3\" selected>3</option>";
-		echo "</select> ";
-		echo "<input type=\"text\" id=\"reps\" placeholder=\"". $y->reps. "\"/>";
-
-		break;
-
-	case "reps":
-	case "value":
-		echo "<input type=\"hidden\" id=\"descr\" value=\"\"/>";
-		echo "<input type=\"hidden\" id=\"rounds\" value=\"1\">";
-		echo "<input type=\"text\" id=\"reps\" placeholder=\"". $y->reps. "\"/>";
-
-		break;
-
-	case "textarea":
-		echo "<input type=\"hidden\" id=\"rounds\" value=\"1\"/>";
-		echo "<input type=\"hidden\" id=\"reps\" value=\"1\"/>";
-		echo "<textarea id=\"descr\" placeholder=\"". $y->descr. "\"></textarea>";
-
-		break;
-
-	case "plank":
-		echo "<input type=\"hidden\" id=\"descr\" value=\"\"/>";
-		echo "<select id=\"rounds\">";
-		echo "<option value=\"1\">1</option>";
-		echo "<option value=\"2\">2</option>";
-		echo "<option value=\"3\">3</option>";
-		echo "<option value=\"4\">4</option>";
-		echo "<option value=\"5\">5</option>";
-		echo "</select> ";
-		echo "<input type=\"text\" id=\"reps\" placeholder=\"". $y->reps. "\"/>";
-
-		break;
-
-	default:
-		break;
-}
-
-?>
-<input type="submit" id="save" class="save_btn" data-id="<?php echo $workout; ?>" value="Lisa"/>
+	$("#w1").trigger("click");
+</script>
