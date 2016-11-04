@@ -14,7 +14,13 @@ if (!isset($o->type))
 
 $d->query("select * from workout where workout_id = ? && reps != 0 order by id desc limit 1", [ $workout ]);
 
-$y = $d->get_obj();
+if ($d->rows) {
+	$y = $d->get_obj();
+}
+else {
+	$y = new stdClass();
+	$y->reps = $y->descr = "-";
+}
 
 switch ($o->type) {
 	case "rounds_reps":
