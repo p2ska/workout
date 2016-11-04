@@ -47,7 +47,10 @@ if (isset($p->args[0]) && $p->args[0] == "element") {
 elseif (isset($p->args[0]) && $p->args[0] == "header") {
 	echo "<div class=\"descr date\">Kuupäev</div>";
 
-	foreach ($workouts as $w)
+    if (!isset($workouts))
+        return false;
+
+    foreach ($workouts as $w)
 		echo "<div class=\"descr ". $w->name. "\">". $w->title. "</div>";
 
 	echo "<br/>";
