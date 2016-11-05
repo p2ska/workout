@@ -1,0 +1,67 @@
+html, body {
+	padding: 			0px;
+	margin: 			0px;
+	font-family: 		"open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:  		13px;
+	color: 				#eee;
+	background-color: 	#222;
+}
+
+#header {
+	margin: 			10px;
+}
+
+#header div {
+	position: 			relative;
+	float: 				left;
+	width: 				10px;
+	height: 			10px;
+}
+
+#workouts {
+	color: 				#666;
+}
+
+#input {
+	position: 			absolute;
+	top: 				0px;
+	left: 				0px;
+	margin: 			10px;
+	padding: 			10px;
+	width: 				350px;
+	height: 			200px;
+	border: 			1px solid #333;
+	border-radius: 		1px 3px 3px 3px;
+	color: 				#ccc;
+	background-color: 	rgba(32, 32, 32, 0.9);
+}
+
+#graph {
+	position: 			relative;
+	left: 				0px;
+	top: 				210px;
+	padding: 			10px;
+}
+
+#results {
+	position: 			absolute;
+	top: 				400px;
+	left: 				0px;
+	margin: 			10px;
+	padding: 			10px;
+	border: 			1px solid #333;
+	border-radius: 		1px 3px 3px 3px;
+	color: 				#ccc;
+	background-color: 	rgba(32, 32, 32, 0.9);
+	clear: 				both;
+}
+
+hr {
+	height: 			1px;
+	border: 			0px;
+	border-bottom: 		1px solid #333;
+	line-height: 		1px;
+	margin: 			0px;
+	margin-bottom: 		10px;
+	padding: 			0px;
+}

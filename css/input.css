@@ -1,0 +1,111 @@
+#input h1 {
+	color: 				#09f;
+	font-size: 			17px;
+	margin: 			0px;
+	text-decoration: 	underline;
+	cursor: 			pointer;
+}
+
+#input input, #input textarea, #input select {
+	margin-right: 		10px;
+	width: 				50px;
+	padding: 			5px;
+	color: 				#ccc;
+	border: 			1px solid #333;
+	border-radius: 		1px 3px 3px 3px;
+	background-color: 	rgba(32, 32, 32, 0.9);
+}
+
+#input select {
+	height: 			28px;
+}
+
+#input textarea {
+	width: 338px;
+}
+
+#input input:focus, #input textarea:focus {
+	border: 			1px solid #ff0;
+}
+
+#input .field {
+	position: 			relative;
+	float: 				left;
+	width: 				100px;
+}
+
+#input .value {
+	position: 			relative;
+	float: 				left;
+	clear: 				all;
+}
+
+#input .s1 {
+	color: 				#ffa;
+}
+
+#input .s2 {
+	color: 				#aff;
+}
+
+#input .k1 {
+	color: 				#faa;
+}
+
+#input .p1 {
+	color: 				#aaf;
+}
+
+#input .w1 {
+	color: 				#faf;
+}
+
+#input .r1 {
+	color: 				#afa;
+}
+
+#input .categorys {
+	color: 				#444;
+}
+
+#input .category, #input .workout {
+	cursor: 			pointer;
+	font-size: 			17px;
+}
+
+#input .active {
+	color: #09e;
+	text-decoration: 	underline;
+}
+
+#input .underline {
+	text-decoration: 	underline;
+}
+
+#save {
+	cursor: 			pointer;
+}
+
+textarea:focus, input:focus{
+    outline: 			none;
+}
+
+*:focus {
+    outline: 			none;
+}
+
+::-webkit-input-placeholder {
+	color: 				#666;
+}
+
+:-moz-placeholder {
+	color: 				#666;
+}
+
+::-moz-placeholder {
+	color: 				#666;
+}
+
+:-ms-input-placeholder {
+	color: 				#666;
+}

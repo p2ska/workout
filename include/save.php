@@ -1,26 +1,52 @@
 <?php
 
 if (isset($_POST["cell_id"])) {
+	$rounds = $reps = 0;
+	$descr = "";
+
 	list($tmp, $date, $workout) = explode("_", clean_input($_POST["cell_id"]));
 	$value = clean_input($_POST["value"]);
-	//$type = $
 
 	if (!$workout)
 		return false;
 
+	$d->query("select type from workouts where id = ?", [ $workout ]);
+
+	$r = $d->get_obj();
+
+	switch ($r->type) {
+		case "rounds_reps":
+			if (substr_count($value, "x")) {
+				list($rounds, $reps) = explode("x", $value);
+			}
+			else {
+				$rounds = 3;
+				$reps = $value;
+				$value = $rounds. "x". $reps;
+			}
+
+			break;
+		case "reps":
+		case "value":		$reps = $value; break;
+		case "textarea":
+		case "plank":		$descr = $value; break;
+	}
+
 	$d->query("delete from workout where date = ? && workout_id = ?", [ $date, $workout ]);
+
+	if ($rounds == 0 && $reps == 0 && $descr == "") {
+		echo "-";
+
+		return false;
+	}
 
 	$d->query(
 		"insert into workout (date, workout_id, rounds, reps, descr, added) values (?, ?, ?, ?, ?, ?)",
-		[ $date, $workout, 0, 0, $value, date("Y-m-d H:i:s") ]
+		[ $date, $workout, $rounds, $reps, $descr, date("Y-m-d H:i:s") ]
 	);
 
-	if ($d->result) {
-		if (!$value)
-			echo "-";
-		else
-			echo $value;
-	}
+	if ($d->result)
+		echo $value;
 	else
 		echo "NOK";
 }

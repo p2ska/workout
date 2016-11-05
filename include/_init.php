@@ -37,7 +37,7 @@ function get_dump($var) {
     return ob_get_clean();
 }
 
-function p_log($file, $str, $append = false) {
+function p_log($file, $str, $append = true) {
     $path = ROOT. "/logs/";
 
     $fp = fopen($path . $file, $append ? "a" : "w");
@@ -67,7 +67,7 @@ function compare_strings($str1, $str2, $encoding = false) {
 
 function clean_input($input, $in_length = 255, $out_length = 255) {
     $result = "";
-	$allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890-_.";
+	$allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890-_.öäüõšžÖÄÜÕŠŽ";
 
 	$input = substr($input, 0, $in_length);
 

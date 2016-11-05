@@ -22,6 +22,8 @@ else {
 	$y->reps = $y->descr = "-";
 }
 
+echo "<input type='hidden' id='hidden'/>";
+
 switch ($o->type) {
 	case "rounds_reps":
 		echo "<input type=\"hidden\" id=\"descr\" value=\"\"/>";
@@ -45,7 +47,7 @@ switch ($o->type) {
 	case "textarea":
 		echo "<input type=\"hidden\" id=\"rounds\" value=\"1\"/>";
 		echo "<input type=\"hidden\" id=\"reps\" value=\"1\"/>";
-		echo "<textarea id=\"descr\" placeholder=\"". $y->descr. "\"></textarea>";
+		echo "<textarea id=\"descr\" placeholder=\"". $y->descr. "\"></textarea><br/>";
 
 		break;
 
@@ -66,5 +68,25 @@ switch ($o->type) {
 		break;
 }
 
+$d->query("select max(id) as count from workouts");
+
+$workouts = $d->get_obj();
+
+$next_workout = $workout + 1;
+
+if ($next_workout > $workouts->count)
+	$next_workout = 1;
+
+$d->query("select category from workouts where id = ?", [ $next_workout ]);
+
+$next = $d->get_obj();
+
 ?>
-<input type="submit" id="save" class="save_btn" data-id="<?php echo $workout; ?>" value="Lisa"/>
+<input
+	type="submit"
+	id="save"
+	data-workout="<?php echo $workout; ?>"
+	data-next-category="<?php echo $next->category; ?>"
+	data-next-workout="<?php echo $next_workout; ?>"
+	value="Lisa"
+/>

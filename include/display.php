@@ -112,16 +112,8 @@ function results($p, $workout, $value, $width = false) {
 	$bg = "";
 
 	if (isset($value[$workout->id])) {
-		//if (isset($value[$workout->id]["descr"]) && $value[$workout->id]["descr"])
-			//$value[$workout->id]["type"] = "textarea";
-
-		// what? investigate!
-
-		//if ($value[$workout->id]["type"] == "textarea" && ($workout->id == 6 || $workout->id == 8))
-			//$value[$workout->id]["type"] = "rounds_reps";
-
-		switch ($workout->type) {//$value[$workout->id]["type"]
-			case "rounds_reps":	$val = $value[$workout->id]["reps"]; break;
+		switch ($workout->type) {
+			case "rounds_reps":	$val = $value[$workout->id]["rounds"]. "x". $value[$workout->id]["reps"]; break;
 			case "reps":
 			case "value":		$val = $value[$workout->id]["reps"]; break;
 			case "textarea":	$val = $value[$workout->id]["descr"]; break;
@@ -129,10 +121,14 @@ function results($p, $workout, $value, $width = false) {
 		}
 	}
 
-	if (!$width)
-		return $val;
+	if (!$width) {
+		if (!$val)
+			$val = "-";
 
-	if ($val == "-" || $val == 0) {
+		return $val;
+	}
+
+	if ((is_string($val) && ($val == "" || $val == "-")) || (!is_string($val) && $val == 0)) {
 		$val = "-";
 		$bg = " none";
 	}

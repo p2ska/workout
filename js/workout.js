@@ -38,29 +38,42 @@ function get_column_widths() {
 }
 
 $("#input").on("click", ".category", function() {
-	$("#workouts").load("=workouts", { id: $(this).prop("id") });
+	var that = $(this);
+	var workout = that.prop("id");
+
+	$(".category").removeClass("underline")
+	$("#workouts").load("=workouts", { id: workout });
+
+	that.addClass("underline");
 });
 
 $("#input").on("click", ".workout", function() {
 	var id = $(this).data("id");
 
 	$("#workout").load("=input", { id: id });
+
 	$(".workout").removeClass("active");
 	$("#workout_" + id).addClass("active");
 
-	setTimeout(function() { $('input[type="text"],textarea').focus() }, 100);
+	setTimeout(function() { $('input[type="text"],textarea').focus(); }, 100);
 });
 
 $("#results").on("click", ".value", function() {
 	var cell_width = $(this).width();
 	var cell_height = $(this).height() + 6;
-	var cell_content = $(this).html().substring(0, 6);
+	var cell_value = $(this).html();
+	var cell_status = cell_value.substring(0, 6);
 
-	if (cell_content != "&nbsp;") {
-		$(this).html("&nbsp;<input type='text' class='edit_cell' style='width: " + cell_width + "px; height: " + cell_height + "px'/>");
+	if (cell_status != "&nbsp;") {
+		$(this).html("&nbsp;<input type='text' class='edit_cell' style='width: " + cell_width + "px; height: " + cell_height + "px' value='" + cell_value + "'/>");
 
-		setTimeout(function() { $(".edit_cell").focus() }, 100);
+		setTimeout(function() { $(".edit_cell").focus().val(cell_value); }, 100);
 	}
+});
+
+$("#results").on("keypress", ".edit_cell", function(e) {
+	if (e.which == 13)
+		$(":focus").blur();
 });
 
 $("#results").on("focusout", ".edit_cell", function() {
@@ -74,6 +87,10 @@ $("#results").on("focusout", ".edit_cell", function() {
 	}).done(function(result) {
 		if (result != "NOK") {
 			parent.html(result);
+			parent.removeClass("none");
+
+			if (parent.html() == "-")
+				parent.addClass("none")
 		}
 		else {
 			alert("FAILED");
@@ -81,20 +98,38 @@ $("#results").on("focusout", ".edit_cell", function() {
 	});
 });
 
+$("#input").keypress(function(e) {
+	if (e.which == 13) {
+		var next_category = $("#save").data("next-category");
+		var next_workout = $("#save").data("next-workout");
+
+		$("#save").trigger("click");
+
+		setTimeout(function() { $("#" + next_category).trigger("click"); }, 50);
+		setTimeout(function() { $("#workout_" + next_workout).trigger("click"); }, 100);
+	}
+});
+
 $("#input").on("click", "#save", function() {
-	var id = $(this).data("id");
+	var workout = $(this).data("workout");
 	var date = $("#date").val();
 
 	$.post("=save", {
-		id: 	id,
+		id: 	workout,
 		date:	date,
 		rounds:	$("#rounds").val(),
 		reps:	$("#reps").val(),
 		descr:	$("#descr").val()
 	}).done(function(result) {
 		if (result == "OK") {
-			$("#workout").html("");
-			$("#f_" + date + "_" + id).load("=display/element/" + id + "/" + date);
+			var next_category = $("#save").data("next-category");
+			var next_workout = $("#save").data("next-workout");
+
+			/*$("#workout").html("");*/
+			$("#f_" + date + "_" + workout).fadeOut(50).load("=display/element/" + workout + "/" + date).fadeIn(100);
+
+			setTimeout(function() { $("#" + next_category).trigger("click"); }, 50);
+			setTimeout(function() { $("#workout_" + next_workout).trigger("click"); }, 100);
 		}
 		else {
 			alert("FAILED");
@@ -102,12 +137,22 @@ $("#input").on("click", "#save", function() {
 	});
 });
 
-$(document).ready(function() {
-	header_magic();
+$.fn.glowEffect = function(start, end, duration) {
+    var that = this;
 
+    return this.css("a", start).animate({ a: end }, {
+		duration: duration,
+        step: function(now) {
+            that.css("text-shadow", "0px 0px " + now + "px #ff0");
+        }
+    });
+};
+
+$(document).ready(function() {
 	$("#input").load("=workout");
 	$("#results_header").load("=display/header", function() {
 		$("#results_body").load("=display/body/" + get_column_widths());
+		$("#graph").load("=graph");
 		$("#results").css("min-width", results_width);
 	});
 });

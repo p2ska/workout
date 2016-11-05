@@ -6,20 +6,21 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="js/jquery-ui/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="fonts/css/font-awesome.min.css" />
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/results_default.css" />
+<link rel="stylesheet" type="text/css" href="css/general.css" />
+<link rel="stylesheet" type="text/css" href="css/input.css" />
+<link rel="stylesheet" type="text/css" href="css/results.css" />
 <title>Work\o/ut</title>
 </head>
 <body>
-<div id="header"></div>
 <div id="input"></div>
+<div id="graph"></div>
 <div id="results">
 	<div id="results_header"></div>
 	<div id="results_body"></div>
 </div>
-<div id="graph"></div>
 </body>
 <script type="text/javascript" src="js/jquery/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui/jquery-ui-1.12.1.min-localized.js"></script>
+<script type="text/javascript" src="js/chart.min.js"></script>
 <script type="text/javascript" src="js/workout.js"></script>
 </html>
