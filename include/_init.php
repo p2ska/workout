@@ -67,7 +67,7 @@ function compare_strings($str1, $str2, $encoding = false) {
 
 function clean_input($input, $in_length = 255, $out_length = 255) {
     $result = "";
-	$allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890-_.öäüõšžÖÄÜÕŠŽ";
+	$allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890-_. öäüõšžÖÄÜÕŠŽ";
 
 	$input = substr($input, 0, $in_length);
 
@@ -76,4 +76,8 @@ function clean_input($input, $in_length = 255, $out_length = 255) {
 			$result .= $input[$a];
 
     return substr($result, 0, $out_length);
+}
+
+function hex_color($hex) {
+	return hexdec(substr($hex, 1, 2)). ", ". hexdec(substr($hex, 3, 2)). ", ". hexdec(substr($hex, 5, 2));
 }

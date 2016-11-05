@@ -3,40 +3,6 @@ var results_width = false,
 
 var months = [ "jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember" ];
 
-function header_magic() {
-	var a, b, c;
-
-	for (a = 0; a < 1000; a++) {
-		b = "#" + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
-		c = Math.random() * 30;
-
-		$("#header").append("<div id='cell_" + a + "'></div>");
-		$("#cell_" + a).css("background-color", b).css("width", c);
-	}
-}
-
-function get_column_widths() {
-	var w, columns = [];
-
-	results_width = 0;
-
-	$("#results_header .descr").each(function() {
-		w = parseInt($(this).width());
-
-		if ($(this).width() != w)
-			$(this).width(w);
-
-		columns.push(w);
-		results_width += w;
-	});
-
-	results_width += 20 + 18 * 22; // padding+cols*(padding+margin+border)
-
-	column_widths = columns.join("-");
-
-	return column_widths;
-}
-
 $("#input").on("click", ".category", function() {
 	var that = $(this);
 	var workout = that.prop("id");
@@ -55,7 +21,24 @@ $("#input").on("click", ".workout", function() {
 	$(".workout").removeClass("active");
 	$("#workout_" + id).addClass("active");
 
-	setTimeout(function() { $('input[type="text"],textarea').focus(); }, 100);
+	setTimeout(function() { $("input[type='text'], textarea").focus(); }, 100);
+});
+
+$("#results").on("click", ".descr:not(.date, .route)", function() {
+ 	if ($(this).hasClass("active")) {
+		$(this).removeClass("active");
+		$("#graph").html("");
+
+		eat_cookie("chart");
+	}
+	else {
+		$(".descr").removeClass("active");
+		$(this).addClass("active");
+
+		$("#graph").load("=graph/" + $(this).data("workout"));
+
+		create_cookie("chart", "/" + $(this).data("workout"), 30);
+	}
 });
 
 $("#results").on("click", ".value", function() {
@@ -137,22 +120,16 @@ $("#input").on("click", "#save", function() {
 	});
 });
 
-$.fn.glowEffect = function(start, end, duration) {
-    var that = this;
-
-    return this.css("a", start).animate({ a: end }, {
-		duration: duration,
-        step: function(now) {
-            that.css("text-shadow", "0px 0px " + now + "px #ff0");
-        }
-    });
-};
-
 $(document).ready(function() {
+	var chart = read_cookie("chart");
+
 	$("#input").load("=workout");
 	$("#results_header").load("=display/header", function() {
 		$("#results_body").load("=display/body/" + get_column_widths());
-		$("#graph").load("=graph");
+		$("#graph").load("=graph" + chart);
 		$("#results").css("min-width", results_width);
+
+		if (chart)
+			$("#w_" + chart.substring(1)).addClass("active");
 	});
 });

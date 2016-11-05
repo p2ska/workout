@@ -1,0 +1,1769 @@
+05.11.2016 22:24:03
+--------------------------------------------------
+Array
+(
+    [2016-08-30] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 951
+                    [date] => 2016-08-30
+                    [workout_id] => 14
+                    [rounds] => 0
+                    [reps] => 13.1
+                    [descr] => 
+                    [added] => 2016-11-05 20:24:31
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [date] => 2016-08-30
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-08-31] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 950
+                    [date] => 2016-08-31
+                    [workout_id] => 14
+                    [rounds] => 0
+                    [reps] => 12.9
+                    [descr] => 
+                    [added] => 2016-11-05 20:24:27
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 11
+                    [date] => 2016-08-31
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 90
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-01] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 18
+                    [date] => 2016-09-01
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 12.8
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 20
+                    [date] => 2016-09-01
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 19
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-02] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 26
+                    [date] => 2016-09-02
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 28
+                    [date] => 2016-09-02
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 7
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-03] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 35
+                    [date] => 2016-09-03
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 12.9
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => 
+        )
+
+    [2016-09-04] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 43
+                    [date] => 2016-09-04
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.5
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 44
+                    [date] => 2016-09-04
+                    [workout_id] => 15
+                    [rounds] => 1
+                    [reps] => 90
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 48
+                    [date] => 2016-09-04
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 4
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-05] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 57
+                    [date] => 2016-09-05
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.4
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 59
+                    [date] => 2016-09-05
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 14
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-06] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 64
+                    [date] => 2016-09-06
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.7
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 66
+                    [date] => 2016-09-06
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 14
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-07] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 72
+                    [date] => 2016-09-07
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.4
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 74
+                    [date] => 2016-09-07
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 14
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-08] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 949
+                    [date] => 2016-09-08
+                    [workout_id] => 14
+                    [rounds] => 0
+                    [reps] => 13.1
+                    [descr] => 
+                    [added] => 2016-11-05 20:24:19
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 84
+                    [date] => 2016-09-08
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 72
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-09] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 90
+                    [date] => 2016-09-09
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 12.8
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 92
+                    [date] => 2016-09-09
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 28
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-10] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 94
+                    [date] => 2016-09-10
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.4
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 96
+                    [date] => 2016-09-10
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 90
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-11] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 99
+                    [date] => 2016-09-11
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.6
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 101
+                    [date] => 2016-09-11
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 5
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-12] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 104
+                    [date] => 2016-09-12
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.5
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => 
+        )
+
+    [2016-09-13] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 113
+                    [date] => 2016-09-13
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.1
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 115
+                    [date] => 2016-09-13
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 25
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-14] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 123
+                    [date] => 2016-09-14
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.1
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 125
+                    [date] => 2016-09-14
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 61
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-15] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 129
+                    [date] => 2016-09-15
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 12.9
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => 
+        )
+
+    [2016-09-16] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 138
+                    [date] => 2016-09-16
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.1
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 140
+                    [date] => 2016-09-16
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 26
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-17] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 144
+                    [date] => 2016-09-17
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 12.7
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 145
+                    [date] => 2016-09-17
+                    [workout_id] => 15
+                    [rounds] => 1
+                    [reps] => 88
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 149
+                    [date] => 2016-09-17
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 14
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-18] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 152
+                    [date] => 2016-09-18
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.1
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 154
+                    [date] => 2016-09-18
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 55
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-19] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 157
+                    [date] => 2016-09-19
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.3
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 159
+                    [date] => 2016-09-19
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 16
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-20] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 167
+                    [date] => 2016-09-20
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.5
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 169
+                    [date] => 2016-09-20
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 67
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-21] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 177
+                    [date] => 2016-09-21
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.2
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 179
+                    [date] => 2016-09-21
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 46
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-22] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 182
+                    [date] => 2016-09-22
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13.1
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 184
+                    [date] => 2016-09-22
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 28
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-23] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 188
+                    [date] => 2016-09-23
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 12.6
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 190
+                    [date] => 2016-09-23
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 24
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-24] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 198
+                    [date] => 2016-09-24
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 12.9
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => 
+        )
+
+    [2016-09-25] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 202
+                    [date] => 2016-09-25
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 12.9
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 204
+                    [date] => 2016-09-25
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 86
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-26] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 207
+                    [date] => 2016-09-26
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 209
+                    [date] => 2016-09-26
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-27] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 216
+                    [date] => 2016-09-27
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.8
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 218
+                    [date] => 2016-09-27
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 15
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-28] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 225
+                    [date] => 2016-09-28
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.7
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 227
+                    [date] => 2016-09-28
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-29] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 230
+                    [date] => 2016-09-29
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.7
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 232
+                    [date] => 2016-09-29
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 22
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-09-30] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 239
+                    [date] => 2016-09-30
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.1
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 241
+                    [date] => 2016-09-30
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 43
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-01] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 248
+                    [date] => 2016-10-01
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.1
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 250
+                    [date] => 2016-10-01
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 94
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-02] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 253
+                    [date] => 2016-10-02
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 14.4
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 255
+                    [date] => 2016-10-02
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 55
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-03] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 258
+                    [date] => 2016-10-03
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 14.7
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 260
+                    [date] => 2016-10-03
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 14
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-04] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 267
+                    [date] => 2016-10-04
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 14.7
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 269
+                    [date] => 2016-10-04
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-05] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 275
+                    [date] => 2016-10-05
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.4
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 277
+                    [date] => 2016-10-05
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-06] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 280
+                    [date] => 2016-10-06
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.1
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 282
+                    [date] => 2016-10-06
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 30
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-07] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 286
+                    [date] => 2016-10-07
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 14.9
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 288
+                    [date] => 2016-10-07
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-08] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 291
+                    [date] => 2016-10-08
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 14.5
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 293
+                    [date] => 2016-10-08
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 47
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-09] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 296
+                    [date] => 2016-10-09
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 14.1
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 298
+                    [date] => 2016-10-09
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-10] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 305
+                    [date] => 2016-10-10
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 307
+                    [date] => 2016-10-10
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 22
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-11] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 313
+                    [date] => 2016-10-11
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.1
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => 
+        )
+
+    [2016-10-12] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 317
+                    [date] => 2016-10-12
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.2
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 319
+                    [date] => 2016-10-12
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-13] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 325
+                    [date] => 2016-10-13
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 14.9
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 327
+                    [date] => 2016-10-13
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-14] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 334
+                    [date] => 2016-10-14
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 14.9
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 336
+                    [date] => 2016-10-14
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 14
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-15] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 339
+                    [date] => 2016-10-15
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 14.8
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => 
+        )
+
+    [2016-10-16] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 343
+                    [date] => 2016-10-16
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.8
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 345
+                    [date] => 2016-10-16
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 85
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-17] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 348
+                    [date] => 2016-10-17
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 350
+                    [date] => 2016-10-17
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 60
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-18] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 357
+                    [date] => 2016-10-18
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.3
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 359
+                    [date] => 2016-10-18
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 73
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-19] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 362
+                    [date] => 2016-10-19
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.2
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 364
+                    [date] => 2016-10-19
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 45
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-20] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 367
+                    [date] => 2016-10-20
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.5
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 369
+                    [date] => 2016-10-20
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 23
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-21] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 376
+                    [date] => 2016-10-21
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.5
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 378
+                    [date] => 2016-10-21
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 15
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-22] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 381
+                    [date] => 2016-10-22
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.6
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 383
+                    [date] => 2016-10-22
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 20
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-23] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 386
+                    [date] => 2016-10-23
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 14.8
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => 
+        )
+
+    [2016-10-24] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 394
+                    [date] => 2016-10-24
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 16.1
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 396
+                    [date] => 2016-10-24
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-25] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 403
+                    [date] => 2016-10-25
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.5
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 405
+                    [date] => 2016-10-25
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+        )
+
+    [2016-10-26] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 408
+                    [date] => 2016-10-26
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 16.1
+                    [descr] => 
+                    [added] => 2016-10-26 23:36:42
+                )
+
+            [1] => 
+            [2] => 
+        )
+
+    [2016-10-27] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 414
+                    [date] => 2016-10-27
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.5
+                    [descr] => 
+                    [added] => 2016-10-27 09:11:01
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 446
+                    [date] => 2016-10-27
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 15
+                    [descr] => 
+                    [added] => 2016-10-27 21:07:40
+                )
+
+        )
+
+    [2016-10-28] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 453
+                    [date] => 2016-10-28
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.3
+                    [descr] => 
+                    [added] => 2016-10-28 09:04:36
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 455
+                    [date] => 2016-10-28
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-10-28 23:23:31
+                )
+
+        )
+
+    [2016-10-29] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 458
+                    [date] => 2016-10-29
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.1
+                    [descr] => 
+                    [added] => 2016-10-29 11:01:41
+                )
+
+            [1] => 
+            [2] => 
+        )
+
+    [2016-10-30] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 460
+                    [date] => 2016-10-30
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 14.5
+                    [descr] => 
+                    [added] => 2016-10-30 11:54:46
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 461
+                    [date] => 2016-10-30
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 68
+                    [descr] => 
+                    [added] => 2016-10-30 11:55:41
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 460
+                    [date] => 2016-10-30
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 14.5
+                    [descr] => 
+                    [added] => 2016-10-30 11:54:46
+                )
+
+            [4] => 
+            [5] => stdClass Object
+                (
+                    [id] => 461
+                    [date] => 2016-10-30
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 68
+                    [descr] => 
+                    [added] => 2016-10-30 11:55:41
+                )
+
+        )
+
+    [2016-10-31] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 471
+                    [date] => 2016-10-31
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.1
+                    [descr] => 
+                    [added] => 2016-10-31 08:48:23
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 477
+                    [date] => 2016-10-31
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 34
+                    [descr] => 
+                    [added] => 2016-11-01 17:55:25
+                )
+
+        )
+
+    [2016-11-01] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 473
+                    [date] => 2016-11-01
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.3
+                    [descr] => 
+                    [added] => 2016-11-01 09:08:18
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 478
+                    [date] => 2016-11-01
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 13
+                    [descr] => 
+                    [added] => 2016-11-01 17:55:38
+                )
+
+        )
+
+    [2016-11-02] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 480
+                    [date] => 2016-11-02
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 16.1
+                    [descr] => 
+                    [added] => 2016-11-02 08:53:48
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 488
+                    [date] => 2016-11-02
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 18
+                    [descr] => 
+                    [added] => 2016-11-02 19:59:18
+                )
+
+        )
+
+    [2016-11-03] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 490
+                    [date] => 2016-11-03
+                    [workout_id] => 14
+                    [rounds] => 1
+                    [reps] => 15.6
+                    [descr] => 
+                    [added] => 2016-11-03 08:58:24
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 493
+                    [date] => 2016-11-03
+                    [workout_id] => 11
+                    [rounds] => 1
+                    [reps] => 14
+                    [descr] => 
+                    [added] => 2016-11-03 21:18:33
+                )
+
+        )
+
+    [2016-11-04] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 847
+                    [date] => 2016-11-04
+                    [workout_id] => 14
+                    [rounds] => 0
+                    [reps] => 15.7
+                    [descr] => 
+                    [added] => 2016-11-05 17:43:17
+                )
+
+            [1] => 
+            [2] => stdClass Object
+                (
+                    [id] => 837
+                    [date] => 2016-11-04
+                    [workout_id] => 11
+                    [rounds] => 0
+                    [reps] => 16
+                    [descr] => 
+                    [added] => 2016-11-05 12:50:37
+                )
+
+        )
+
+)
+
+--------------------------------------------------

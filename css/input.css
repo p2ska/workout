@@ -73,15 +73,6 @@
 	font-size: 			17px;
 }
 
-#input .active {
-	color: #09e;
-	text-decoration: 	underline;
-}
-
-#input .underline {
-	text-decoration: 	underline;
-}
-
 #save {
 	cursor: 			pointer;
 }

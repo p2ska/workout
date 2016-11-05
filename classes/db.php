@@ -76,6 +76,24 @@ class DATABASE {
 		return false;
 	}
 
+	function get_value($table, $value, $where = false, $arg = false) {
+		if ($arg && !is_array($arg))
+			$arg = [ $arg ];
+
+		$q = "select ". $value. " as value from ". $table. ($where ? " where ". $where : ""). " limit 1";
+
+		$this->query($q, $arg);
+
+		if ($this->rows) {
+			$result = $this->get_obj();
+
+			return $result->value;
+		}
+		else {
+			return false;
+		}
+	}
+
 	function get_obj() {
 		return @mysql_fetch_object($this->result);
 	}

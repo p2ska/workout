@@ -41,7 +41,7 @@
 #results .descr {
 	color: 				#09f;
 	background: 		rgba(255, 255, 255, 0.1);
-	text-decoration: 	underline;
+	cursor: 			pointer;
 }
 
 #results .edit_cell {

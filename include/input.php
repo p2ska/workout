@@ -26,41 +26,30 @@ echo "<input type='hidden' id='hidden'/>";
 
 switch ($o->type) {
 	case "rounds_reps":
-		echo "<input type=\"hidden\" id=\"descr\" value=\"\"/>";
-		echo "<select id=\"rounds\">";
-		echo "<option value=\"1\">1</option>";
-		echo "<option value=\"2\">2</option>";
-		echo "<option value=\"3\" selected>3</option>";
+		echo "<input type='hidden' id='descr' value=''/>";
+		echo "<select id='rounds'>";
+		echo "<option value=1>1</option>";
+		echo "<option value=2>2</option>";
+		echo "<option value=3 selected>3</option>";
+		echo "<option value=4>4</option>";
+		echo "<option value=5>5</option>";
+		echo "<option value=6>6</option>";
 		echo "</select> ";
-		echo "<input type=\"text\" id=\"reps\" placeholder=\"". $y->reps. "\"/>";
+		echo "<input type='text' id='reps' placeholder='". $y->reps. "'/>";
 
 		break;
 
-	case "reps":
 	case "value":
-		echo "<input type=\"hidden\" id=\"descr\" value=\"\"/>";
-		echo "<input type=\"hidden\" id=\"rounds\" value=\"1\">";
-		echo "<input type=\"text\" id=\"reps\" placeholder=\"". $y->reps. "\"/>";
+		echo "<input type='hidden' id='descr' value=''/>";
+		echo "<input type='hidden' id='rounds' value=1>";
+		echo "<input type='text' id='reps' placeholder='". $y->reps. "'/>";
 
 		break;
 
 	case "textarea":
-		echo "<input type=\"hidden\" id=\"rounds\" value=\"1\"/>";
-		echo "<input type=\"hidden\" id=\"reps\" value=\"1\"/>";
-		echo "<textarea id=\"descr\" placeholder=\"". $y->descr. "\"></textarea><br/>";
-
-		break;
-
-	case "plank":
-		echo "<input type=\"hidden\" id=\"descr\" value=\"\"/>";
-		echo "<select id=\"rounds\">";
-		echo "<option value=\"1\">1</option>";
-		echo "<option value=\"2\">2</option>";
-		echo "<option value=\"3\">3</option>";
-		echo "<option value=\"4\">4</option>";
-		echo "<option value=\"5\">5</option>";
-		echo "</select> ";
-		echo "<input type=\"text\" id=\"reps\" placeholder=\"". $y->reps. "\"/>";
+		echo "<input type='hidden' id='rounds' value=1/>";
+		echo "<input type='hidden' id='reps' value=1/>";
+		echo "<textarea id='descr' placeholder='". $y->descr. "'></textarea><br/>";
 
 		break;
 

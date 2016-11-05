@@ -1,14 +1,19 @@
 <?php
 
-// kas on vaja lisada tänane päev (tühi rida)
+$today = time();
 
-$d->query("select * from workout where date = ? limit 1", [ date("Y-m-d") ]);
+for ($day = 0; $day < 30; $day++) {
+	$d->query("select id from workout where date = ? limit 1", [ date("Y-m-d", $today - $day * 86400) ]);
 
-if (!$d->rows) {
-	$d->query(
-		"insert into workout (date, workout_id, rounds, reps, descr, added) values (?, ?, ?, ?, ?, ?)",
-		[ date("Y-m-d"), 13, 0, 0, "", date("Y-m-d H:i:s") ]
-	);
+	if (!$d->rows) {
+		$d->query(
+			"insert into workout (date, workout_id, rounds, reps, descr, added) values (?, ?, ?, ?, ?, ?)",
+			[ date("Y-m-d"), 13, 0, 0, "", date("Y-m-d H:i:s") ]
+		);
+	}
+	else {
+		break;
+	}
 }
 
 $d->query("select * from workouts order by sort");
@@ -45,13 +50,13 @@ if (isset($p->args[0]) && $p->args[0] == "element") {
 	echo results($p, $workouts_id[$id], $result);
 }
 elseif (isset($p->args[0]) && $p->args[0] == "header") {
-	echo "<div class=\"descr date\">Kuupäev</div>";
+	echo "<div class='descr date'>Kuupäev</div>";
 
     if (!isset($workouts))
         return false;
 
     foreach ($workouts as $w)
-		echo "<div class=\"descr ". $w->name. "\">". $w->title. "</div>";
+		echo "<div id='w_". $w->id. "' class='descr ". $w->name. "' data-workout='". $w->id. "'>". $w->title. "</div>";
 
 	echo "<br/>";
 }
@@ -63,7 +68,7 @@ else {
 
 	if (isset($p->args[1])) {
 		$column_widths = explode("-", $p->args[1]);
-		$date_width = " style=\"width: ". array_shift($column_widths). "px\"";
+		$date_width = " style='width: ". array_shift($column_widths). "px'";
 	}
 
 	$row = 0;
@@ -85,11 +90,11 @@ else {
 			$today .= " new_month";
 
 		if ($wd == 0 || $wd == 5)
-			echo "<div class=\"weekend results". $today. "\">";
+			echo "<div class='weekend results". $today. "'>";
 		else
-			echo "<div class=\"results". $today. "\">";
+			echo "<div class='results". $today. "'>";
 
-		echo "<div class=\"date\"". $date_width. ">". $f_date. "</div>";
+		echo "<div class='date'". $date_width. ">". $f_date. "</div>";
 
 		$count = 0;
 		$width = false;
@@ -114,7 +119,6 @@ function results($p, $workout, $value, $width = false) {
 	if (isset($value[$workout->id])) {
 		switch ($workout->type) {
 			case "rounds_reps":	$val = $value[$workout->id]["rounds"]. "x". $value[$workout->id]["reps"]; break;
-			case "reps":
 			case "value":		$val = $value[$workout->id]["reps"]; break;
 			case "textarea":	$val = $value[$workout->id]["descr"]; break;
 			case "plank":		$val = $value[$workout->id]["reps"]; break;
@@ -133,8 +137,8 @@ function results($p, $workout, $value, $width = false) {
 		$bg = " none";
 	}
 
-	$result = "<div id=\"f_". $p->date. "_". $workout->id. "\" class=\"value ". $workout->name. $bg. "\"";
-	$result.= ($width ? " style=\"width: ". $width. "px\"" : ""). ">". $val. "</div>";
+	$result = "<div id='f_". $p->date. "_". $workout->id. "' class='value ". $workout->name. $bg. "'";
+	$result.= ($width ? " style='width: ". $width. "px'" : ""). ">". $val. "</div>";
 
 	return $result;
 }
