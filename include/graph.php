@@ -28,10 +28,10 @@ foreach ($d->get_all() as $o) {
 }
 
 $color = hex_color($workouts[$id]->color);
-$bg_color = "backgroundColor: [ 'rgba(". $color. ", 0.2)' ], ";
+$bg_color = "backgroundColor: 'rgba(". $color. ", 0.2)', ";
 
 $dataset = "{ label: '". $workouts[$id]->title. "', data: [ ". implode(", ", $data). " ], ".
-	$bg_color. "borderColor: [ 'rgba(". $color. ", 1)' ], borderWidth: 1 }";
+	$bg_color. "borderColor: 'rgba(". $color. ", 1)', borderWidth: 1 }";
 
 ?>
 <canvas id="chart" width="1000" height="100"></canvas>
