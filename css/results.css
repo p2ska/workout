@@ -1,4 +1,4 @@
-results .results {
+#results .results {
 	position: 			relative;
 	clear: 				both;
 }
@@ -72,6 +72,10 @@ results .results {
 #results .today {
 	padding-top:		1px;
 	background-color:	#09f;
+}
+
+#results .we {
+	color: 				#c62;
 }
 
 /* workout cells */

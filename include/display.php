@@ -82,12 +82,12 @@ else {
 		list($yy, $mm, $dd) = explode("-", $date);
 
 		$wd = date("w", mktime(0, 0, 0, $mm, $dd, $yy));
-		$cd = $weekdays[$wd];
+		$cd = $weekdays[$wd]. ", ";
 
-		//if ($wd == 0 || $wd == 6)
-			//$cd = "<font class='red'>". $cd. "</font>";
+		if ($wd == 0 || $wd == 6)
+			$cd = "<font class='we'>". $cd. "</font>";
 
-		$f_date = intval($dd). ". ". $months[intval($mm) - 1];
+		$f_date = $cd. intval($dd). ". ". $months[intval($mm) - 1];
 
 		if ($row > 0 && $row < 3)
 			$today = " today";
