@@ -76,6 +76,29 @@ class DATABASE {
 		return false;
 	}
 
+	function get_obj($field = false) {
+		$obj = @mysql_fetch_object($this->result);
+
+		if ($field && isset($obj->{ $field }))
+			return $obj->{ $field };
+		else
+			return $obj;
+	}
+
+	function get_all($field = false) {
+		$results = [];
+
+		while ($obj = @mysql_fetch_object($this->result))
+			if ($obj) {
+				if ($field && isset($obj->{ $field }))
+					$results[] = $obj->{ $field };
+				else
+					$results[] = $obj;
+			}
+
+		return $results;
+	}
+
 	function get_value($table, $value, $where = false, $arg = false) {
 		if ($arg && !is_array($arg))
 			$arg = [ $arg ];
@@ -92,20 +115,6 @@ class DATABASE {
 		else {
 			return false;
 		}
-	}
-
-	function get_obj() {
-		return @mysql_fetch_object($this->result);
-	}
-
-	function get_all() {
-		$all = [];
-
-		while ($obj = @mysql_fetch_object($this->result))
-			if ($obj)
-				$all[] = $obj;
-
-		return $all;
 	}
 
 	function free() {

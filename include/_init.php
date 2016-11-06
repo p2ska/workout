@@ -10,6 +10,7 @@ define("DB_CONNECTOR",	"c:/xampp/security/workout/_connector.php");
 // VARIABLES
 
 $months = [ "jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember" ];
+$weekdays = [ "P", "E", "T", "K", "N", "R", "L" ];
 
 // INCLUDES
 

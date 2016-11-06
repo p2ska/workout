@@ -75,13 +75,19 @@ else {
 	$last_month = false;
 
 	foreach ($results as $date => $result) {
-		$today = "";
+		$cd = $today = "";
 		$row++;
 		$p->date = $date;
 
 		list($yy, $mm, $dd) = explode("-", $date);
-		$f_date = intval($dd). ". ". $months[intval($mm) - 1];
+
 		$wd = date("w", mktime(0, 0, 0, $mm, $dd, $yy));
+		$cd = $weekdays[$wd];
+
+		//if ($wd == 0 || $wd == 6)
+			//$cd = "<font class='red'>". $cd. "</font>";
+
+		$f_date = intval($dd). ". ". $months[intval($mm) - 1];
 
 		if ($row > 0 && $row < 3)
 			$today = " today";
@@ -121,7 +127,6 @@ function results($p, $workout, $value, $width = false) {
 			case "rounds_reps":	$val = $value[$workout->id]["rounds"]. "x". $value[$workout->id]["reps"]; break;
 			case "value":		$val = $value[$workout->id]["reps"]; break;
 			case "textarea":	$val = $value[$workout->id]["descr"]; break;
-			case "plank":		$val = $value[$workout->id]["reps"]; break;
 		}
 	}
 
@@ -134,6 +139,9 @@ function results($p, $workout, $value, $width = false) {
 
 	if ((is_string($val) && $val == "") || (is_numeric($val) && $val == 0))
 		$val = "-";
+
+	if ($workout->id == 13 || $workout->id == 14)
+		$val = sprintf("%.1f", $val);
 
 	if ($val == "-")
 		$bg = " none";

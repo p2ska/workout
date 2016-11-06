@@ -18,23 +18,32 @@ if (isset($_POST["cell_id"])) {
 		case "rounds_reps":
 			if (substr_count($value, "x")) {
 				list($rounds, $reps) = explode("x", $value);
+
+				$rounds = intval($rounds);
+				$reps = intval($reps);
 			}
 			else {
 				$rounds = 3;
-				$reps = $value;
+				$reps = intval($value);
 				$value = $rounds. "x". $reps;
 			}
 
 			break;
-		case "reps":
-		case "value":		$reps = $value; break;
+
+		case "value":
+			$reps = floatval(str_replace(",", ".", $value));
+
+			break;
+
 		case "textarea":
-		case "plank":		$descr = $value; break;
+			$descr = trim($value);
+
+			break;
 	}
 
 	$d->query("delete from workout where date = ? && workout_id = ?", [ $date, $workout ]);
 
-	if ($rounds == 0 && $reps == 0 && $descr == "") {
+	if ($rounds == 0 && $reps == 0 && (!$descr || $descr == "-")) {
 		echo "-";
 
 		return false;
