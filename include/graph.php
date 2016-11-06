@@ -14,6 +14,9 @@ foreach ($d->get_all() as $r)
 $d->query("select * from workout where workout_id = ? order by date", [ $id ]);
 
 foreach ($d->get_all() as $o) {
+	if ($o->reps == 0 && $o->rounds == 0 && $o->descr == "")
+		continue;
+
 	list($yy, $mm, $dd) = explode("-", $o->date);
 
 	$label[$o->date] = $dd;

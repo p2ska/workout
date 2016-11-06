@@ -132,10 +132,11 @@ function results($p, $workout, $value, $width = false) {
 		return $val;
 	}
 
-	if ((is_string($val) && ($val == "" || $val == "-")) || (!is_string($val) && $val == 0)) {
+	if ((is_string($val) && $val == "") || (is_numeric($val) && $val == 0))
 		$val = "-";
+
+	if ($val == "-")
 		$bg = " none";
-	}
 
 	$result = "<div id='f_". $p->date. "_". $workout->id. "' class='value ". $workout->name. $bg. "'";
 	$result.= ($width ? " style='width: ". $width. "px'" : ""). ">". $val. "</div>";
