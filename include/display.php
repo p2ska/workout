@@ -140,7 +140,7 @@ function results($p, $workout, $value, $width = false) {
 	if ((is_string($val) && $val == "") || (is_numeric($val) && $val == 0))
 		$val = "-";
 
-	if ($workout->id == 13 || $workout->id == 14)
+	if ($val != "-" && ($workout->id == 13 || $workout->id == 14))
 		$val = sprintf("%.1f", $val);
 
 	if ($val == "-")

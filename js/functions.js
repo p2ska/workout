@@ -32,7 +32,7 @@ function get_column_widths() {
 	return column_widths;
 }
 
-function create_cookie(name, value, days) {
+function make_cookie(name, value, days) {
     if (days) {
         var date = new Date();
 
@@ -47,7 +47,7 @@ function create_cookie(name, value, days) {
     document.cookie = name + "=" + value + expires + "; path=/";
 }
 
-function read_cookie(name) {
+function fetch_cookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(";");
 

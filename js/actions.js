@@ -37,7 +37,8 @@ $("#results").on("click", ".descr:not(.date, .route)", function() {
 
 		$("#graph").load("=graph/" + $(this).data("workout"));
 
-		create_cookie("chart", "/" + $(this).data("workout"), 30);
+		make_cookie("chart", "/" + $(this).data("workout"), 30);
+		make_cookie("duration", "/all", 30);
 	}
 });
 
@@ -121,15 +122,24 @@ $("#input").on("click", "#save", function() {
 });
 
 $(document).ready(function() {
-	var chart = read_cookie("chart");
+	var chart = fetch_cookie("chart");
+	var duration = fetch_cookie("duration");
+
+	if (chart == null)
+		chart = "/";
+
+	if (duration != "/week" && duration != "/month")
+		duration = "/all";
 
 	$("#input").load("=workout");
+
 	$("#results_header").load("=display/header", function() {
 		$("#results_body").load("=display/body/" + get_column_widths());
-		$("#graph").load("=graph" + chart);
+		$("#graph").load("=graph" + chart + duration);
 		$("#results").css("min-width", results_width);
 
-		if (chart)
+		if (chart) {
 			$("#w_" + chart.substring(1)).addClass("active");
+		}
 	});
 });
