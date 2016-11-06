@@ -64,7 +64,7 @@ $next = $d->get_obj();
 
 function get_last_value($d, $workout) {
 	if ($workout->type == "textarea")
-		$d->query("select descr as value from workout where workout_id = ? && descr != '' order by date desc limit 1", [ $workout->id ]);
+		$d->query("select descr as value from workout where workout_id = ? && descr != ? order by date desc limit 1", [ $workout->id, "" ]);
 	else
 		$d->query("select reps as value from workout where workout_id = ? && reps != ? order by date desc limit 1", [ $workout->id, 0 ]);
 
