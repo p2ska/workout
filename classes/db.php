@@ -24,7 +24,7 @@ class DATABASE {
 			$this->query("set names '". $charset. "' collate '". $collation. "'");
 	}
 
-	function query($query, $values = false) {
+	function query($query, $values = false, $return_result = false) {
 		$this->rows = $this->error = $param_count = 0;
 		$this->error_msg = "";
 
@@ -63,6 +63,13 @@ class DATABASE {
 		$this->rows = @mysql_num_rows($this->result);
 		$this->insert_id = @mysql_insert_id($this->connection);
 
+		if ($return_result) {
+			if ($this->rows == 1)
+				return $this->get_obj($return_result);
+			else
+				return $this->get_all($return_result);
+		}
+
 		$this->error = @mysql_errno($this->connection);
 		$this->error_msg = @mysql_error($this->connection). " [". $this->query. "]";
 
@@ -79,7 +86,7 @@ class DATABASE {
 	function get_obj($field = false) {
 		$obj = @mysql_fetch_object($this->result);
 
-		if ($field && isset($obj->{ $field }))
+		if ($field && is_string($field) && isset($obj->{ $field }))
 			return $obj->{ $field };
 		else
 			return $obj;
@@ -90,7 +97,7 @@ class DATABASE {
 
 		while ($obj = @mysql_fetch_object($this->result))
 			if ($obj) {
-				if ($field && isset($obj->{ $field }))
+				if ($field && is_string($field) && isset($obj->{ $field }))
 					$results[] = $obj->{ $field };
 				else
 					$results[] = $obj;

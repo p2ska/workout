@@ -10,9 +10,7 @@ if (isset($_POST["cell_id"])) {
 	if (!$workout)
 		return false;
 
-	$d->query("select type from workouts where id = ?", [ $workout ]);
-
-	$r = $d->get_obj();
+	$r = $d->query("select type from workouts where id = ?", [ $workout ], true);
 
 	switch ($r->type) {
 		case "rounds_reps":

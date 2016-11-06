@@ -5,9 +5,7 @@ if (!isset($_POST["id"]))
 
 $workout = intval($_POST["id"]);
 
-$d->query("select * from workouts where id = ? limit 1", [ $workout ]);
-
-$o = $d->get_obj();
+$o = $d->query("select * from workouts where id = ? limit 1", [ $workout ], true);
 
 if (!isset($o->type))
 	return false;
@@ -49,18 +47,14 @@ switch ($o->type) {
 		break;
 }
 
-$d->query("select max(id) as count from workouts");
-
-$workouts = $d->get_obj();
+$workouts = $d->query("select max(id) as count from workouts", false, "count");
 
 $next_workout = $workout + 1;
 
-if ($next_workout > $workouts->count)
+if ($next_workout > $workouts)
 	$next_workout = 1;
 
-$d->query("select category from workouts where id = ?", [ $next_workout ]);
-
-$next = $d->get_obj();
+$next = $d->query("select category from workouts where id = ?", [ $next_workout ], true);
 
 function get_last_value($d, $workout) {
 	if ($workout->type == "textarea")

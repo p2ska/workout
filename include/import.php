@@ -2,6 +2,7 @@
 
 // import
 
+/*
 $d->query("select * from workouts");
 
 foreach ($d->get_all() as $o)
@@ -54,3 +55,5 @@ while ($line = fgets($fp, 1024)) {
 }
 
 die();
+
+*/
