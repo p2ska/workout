@@ -23,7 +23,11 @@ CREATE TABLE IF NOT EXISTS `workouts` (
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci;
 
 ALTER TABLE `workout`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `date` (`date`),
+  ADD KEY `workout_id` (`workout_id`);
 
 ALTER TABLE `workouts`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sort` (`sort`),
+  ADD KEY `category` (`category`);
