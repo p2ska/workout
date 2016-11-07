@@ -32,7 +32,7 @@ function get_column_widths() {
 	return column_widths;
 }
 
-function make_cookie(name, value, days) {
+function bake_cookie(name, value, days) {
     if (days) {
         var date = new Date();
 
@@ -65,7 +65,7 @@ function fetch_cookie(name) {
 }
 
 function eat_cookie(name) {
-    create_cookie(name, "", -1);
+    bake_cookie(name, "", -1);
 }
 
 $.fn.glowEffect = function(start, end, duration) {

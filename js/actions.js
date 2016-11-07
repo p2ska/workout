@@ -37,8 +37,8 @@ $("#results").on("click", ".descr:not(.date, .route)", function() {
 
 		$("#graph").load("=graph/" + $(this).data("workout"));
 
-		make_cookie("chart", "/" + $(this).data("workout"), 30);
-		make_cookie("duration", "/all", 30);
+		bake_cookie("chart", "/" + $(this).data("workout"), 30);
+		bake_cookie("duration", "/all", 30);
 	}
 });
 
@@ -109,7 +109,6 @@ $("#input").on("click", "#save", function() {
 			var next_category = $("#save").data("next-category");
 			var next_workout = $("#save").data("next-workout");
 
-			/*$("#workout").html("");*/
 			$("#f_" + date + "_" + workout).fadeOut(50).load("=display/element/" + workout + "/" + date).fadeIn(100);
 
 			setTimeout(function() { $("#" + next_category).trigger("click"); }, 50);
