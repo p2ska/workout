@@ -33,11 +33,11 @@ else {
 }
 
 foreach ($d->get_all() as $o) {
-	$workout = $workouts[$o->workout_id]; // siin oleks vaja hoopis sort järgi
+	$workout = $workouts[$o->workout_id];
 
 	$results[$o->date][$workout->sort] = [
 		"name"		=> $workout->name,
-		"type"		=> $workout->type, // ?!?!
+		"type"		=> $workout->type,
 		"date"		=> $o->date,
 		"rounds"	=> $o->rounds,
 		"reps"		=> $o->reps,

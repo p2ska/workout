@@ -54,8 +54,11 @@ if (isset($_POST["cell_id"])) {
 
 	if ($d->result)
 		echo $value;
-	else
+	else {
+        p-log("db_failure.txt", $d);
+
 		echo "NOK";
+    }
 }
 elseif (isset($_POST["id"])) {
 	$workout	= intval($_POST["id"]);
@@ -71,9 +74,14 @@ elseif (isset($_POST["id"])) {
 
 	if ($d->result)
 		echo "OK";
-	else
+	else {
+        p_log("db_failure.txt", $d);
+
 		echo "NOK";
+    }
 }
 else {
+    p_log("gn_failure.txt", $_POST);
+
 	echo "NOK";
 }
