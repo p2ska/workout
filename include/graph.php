@@ -23,7 +23,7 @@ if (isset($p->args[1]) && $p->args[1]) {
 	elseif ($p->args[1] == "month")
 		$v[] = date("Y-m-d", time() - 30 * 86400);
 	else
-		$v[] = date("Y-m-d", time() - 90 * 86400);
+		$v[] = date("Y-m-d", 0);
 
 	$q = "select * from workout where workout_id = ? && date >= ? order by date";
 }
@@ -58,7 +58,7 @@ $dataset = "{".
 "}";
 
 ?>
-<canvas id="chart" width="1000" height="100"></canvas>
+<canvas id="chart" width="1000" height="200"></canvas>
 <script>
 var ctx = $("#chart");
 var chart = new Chart(ctx, {
@@ -68,6 +68,7 @@ var chart = new Chart(ctx, {
         datasets: [ <?php echo $dataset; ?> ]
     },
     options: {
+		maintainAspectRatio: false,
         scales: {
             yAxes: [{
                 ticks: {

@@ -18,11 +18,30 @@ html, body {
 	height: 			10px;
 }
 
+#period {
+	position: 			absolute;
+	left: 				50px;
+	top: 				10px;
+	z-index: 			3;
+}
+
+#period .period {
+	cursor: 			pointer;
+	margin: 			0px;
+	padding: 			2px;
+	padding-left: 		10px;
+	padding-right: 		10px;
+	color: 				#666;
+	border: 			1px solid #333;
+	border-radius: 		1px 3px 3px 3px;
+}
+
 #workouts {
 	color: 				#666;
 }
 
 #input {
+	display: 			none;
 	position: 			absolute;
 	top: 				0px;
 	left: 				0px;
@@ -34,18 +53,20 @@ html, body {
 	border-radius: 		1px 3px 3px 3px;
 	color: 				#ccc;
 	background-color: 	rgba(32, 32, 32, 0.9);
+	z-index: 			2;
 }
 
 #graph {
 	position: 			relative;
 	left: 				0px;
-	top: 				210px;
+	top: 				10px;
 	padding: 			10px;
+	z-index: 			1;
 }
 
 #results {
 	position: 			absolute;
-	top: 				400px;
+	top: 				210px;
 	left: 				0px;
 	margin: 			10px;
 	padding: 			10px;
@@ -67,7 +88,7 @@ hr {
 }
 
 .active {
-	color: 				#09e;
+	color: 				#09e !important;
 	text-decoration: 	underline;
 }
 

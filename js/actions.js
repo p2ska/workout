@@ -1,5 +1,6 @@
 var results_width = false,
-	column_widths = false;
+	column_widths = false,
+	next_workout = false;
 
 var months = [ "jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember" ];
 
@@ -24,7 +25,21 @@ $("#input").on("click", ".workout", function() {
 	setTimeout(function() { $("input[type='text'], textarea").focus(); }, 100);
 });
 
+$("#period").on("click", ".period", function() {
+	var period = $(this).data("length");
+	var workout = $("#results .active").data("workout");
+
+	$("#period .period").removeClass("active");
+	$(this).addClass("active");
+
+	$("#graph").load("=graph/" + workout + "/" + period);
+
+	bake_cookie("period", period, 30);
+});
+
 $("#results").on("click", ".descr:not(.date, .route)", function() {
+	var workout = $(this).data("workout");
+
  	if ($(this).hasClass("active")) {
 		$(this).removeClass("active");
 		$("#graph").html("");
@@ -35,10 +50,9 @@ $("#results").on("click", ".descr:not(.date, .route)", function() {
 		$(".descr").removeClass("active");
 		$(this).addClass("active");
 
-		$("#graph").load("=graph/" + $(this).data("workout"));
+		$("#graph").load("=graph/" + workout);
 
-		bake_cookie("chart", "/" + $(this).data("workout"), 30);
-		bake_cookie("duration", "/all", 30);
+		bake_cookie("chart", workout, 30);
 	}
 });
 
@@ -55,12 +69,22 @@ $("#results").on("click", ".value", function() {
 	}
 });
 
-$("#results").on("keypress", ".edit_cell", function(e) {
-	if (e.which == 13)
+$("#results").on("keydown", ".edit_cell", function(e) {
+	var key = e.keyCode || e.which;
+
+	if (key == 9) {
+		e.preventDefault();
+
+		next_workout = true;
+
 		$(":focus").blur();
+	}
+	else if (key == 13) {
+		$(":focus").blur();
+	}
 });
 
-$("#results").on("focusout", ".edit_cell", function() {
+$("#results").on("focusout", ".edit_cell", function(e) {
 	var parent = $(this).parent();
 	var cell_id = parent.prop("id");
 	var value = $(this).val();
@@ -73,11 +97,19 @@ $("#results").on("focusout", ".edit_cell", function() {
 			parent.html(result);
 			parent.removeClass("none");
 
-			if (parent.html() == "-")
+			var c = parent.html();
+
+			if (c == "-" || c == "" || c == 0)
 				parent.addClass("none")
+
+			if (next_workout) {
+				$(parent).next().trigger("click");
+
+				next_workout = false;
+			}
 		}
 		else {
-			alert("FAILED");
+			alert("FAILURE");
 		}
 	});
 });
@@ -115,30 +147,29 @@ $("#input").on("click", "#save", function() {
 			setTimeout(function() { $("#workout_" + next_workout).trigger("click"); }, 100);
 		}
 		else {
-			alert("FAILED");
+			alert("FAILURE");
 		}
 	});
 });
 
 $(document).ready(function() {
 	var chart = fetch_cookie("chart");
-	var duration = fetch_cookie("duration");
+	var period = fetch_cookie("period");
 
-	if (chart == null)
-		chart = "/";
-
-	if (duration != "/week" && duration != "/month")
-		duration = "/all";
+	if (period != "week" && period != "month")
+		period = "year";
 
 	$("#input").load("=workout");
 
 	$("#results_header").load("=display/header", function() {
 		$("#results_body").load("=display/body/" + get_column_widths());
-		$("#graph").load("=graph" + chart + duration);
+
+		$("#graph").load("=graph/" + chart + "/" + period);
 		$("#results").css("min-width", results_width);
 
-		if (chart) {
-			$("#w_" + chart.substring(1)).addClass("active");
-		}
+		if (chart)
+			$("#w_" + chart).addClass("active");
+
+		$("#period_" + period).addClass("active");
 	});
 });

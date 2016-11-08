@@ -146,7 +146,8 @@ function results($p, $workout, $value, $width = false) {
 	if ($val == "-")
 		$bg = " none";
 
-	$result = "<div id='f_". $p->date. "_". $workout->id. "' class='value ". $workout->name. $bg. "'";
+	$result = "<div id='f_". $p->date. "_". $workout->id. "' ";
+	$result.= "class='value ". $workout->name. $bg. "'";
 	$result.= ($width ? " style='width: ". $width. "px'" : ""). ">". $val. "</div>";
 
 	return $result;

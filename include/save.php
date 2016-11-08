@@ -41,7 +41,7 @@ if (isset($_POST["cell_id"])) {
 
 	$d->query("delete from workout where date = ? && workout_id = ?", [ $date, $workout ]);
 
-	if ($rounds == 0 && $reps == 0 && (!$descr || $descr == "-")) {
+	if ($reps == 0 && (!$descr || $descr == "-")) {
 		echo "-";
 
 		return false;
@@ -55,7 +55,7 @@ if (isset($_POST["cell_id"])) {
 	if ($d->result)
 		echo $value;
 	else {
-        p-log("db_failure.txt", $d);
+        p_log("db_failure.txt", $d);
 
 		echo "NOK";
     }
