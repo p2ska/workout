@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS `workouts` (
   `type` varchar(20) COLLATE utf8_estonian_ci NOT NULL,
   `category` char(2) COLLATE utf8_estonian_ci NOT NULL,
   `sort` tinyint(4) NOT NULL,
-  `bgcolor` varchar(16) COLLATE utf8_estonian_ci NOT NULL
+  `unit` varchar(10) COLLATE utf8_estonian_ci NOT NULL,
+  `color` varchar(16) COLLATE utf8_estonian_ci NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci;
 
 ALTER TABLE `workout`
