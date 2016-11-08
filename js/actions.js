@@ -37,7 +37,7 @@ $("#period").on("click", ".period", function() {
 	bake_cookie("period", period, 30);
 });
 
-$("#results").on("click", ".descr:not(.date, .route)", function() {
+$("#results").on("click", ".descr:not(.date, .food, .route)", function() {
 	var workout = $(this).data("workout");
 
  	if ($(this).hasClass("active")) {
