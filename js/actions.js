@@ -1,6 +1,8 @@
-var results_width = false,
-	column_widths = false,
-	next_workout = false;
+var current_graph	= false,
+	current_period	= false,
+	next_workout	= false,
+	results_width	= false,
+	column_widths	= false;
 
 var months = [ "jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember" ];
 
@@ -26,33 +28,34 @@ $("#input").on("click", ".workout", function() {
 });
 
 $("#period").on("click", ".period", function() {
-	var period = $(this).data("length");
-	var workout = $("#results .active").data("workout");
+	current_graph = $("#results .active").data("workout");
+	current_period = $(this).data("length");
 
 	$("#period .period").removeClass("active");
 	$(this).addClass("active");
 
-	$("#graph").load("=graph/" + workout + "/" + period);
+	$("#graph").load("=graph/" + current_graph + "/" + current_period);
 
-	bake_cookie("period", period, 30);
+	bake_cookie("period", current_period, 30);
 });
 
 $("#results").on("click", ".descr:not(.date, .food, .route)", function() {
-	var workout = $(this).data("workout");
+	current_graph = $(this).data("workout");
 
  	if ($(this).hasClass("active")) {
 		$(this).removeClass("active");
+
 		$("#graph").html("");
 
-		eat_cookie("chart");
+		eat_cookie("graph");
 	}
 	else {
 		$(".descr").removeClass("active");
 		$(this).addClass("active");
 
-		$("#graph").load("=graph/" + workout);
+		$("#graph").load("=graph/" + current_graph + "/" + current_period);
 
-		bake_cookie("chart", workout, 30);
+		bake_cookie("graph", current_graph, 30);
 	}
 });
 
@@ -63,7 +66,10 @@ $("#results").on("click", ".value", function() {
 	var cell_status = cell_value.substring(0, 6);
 
 	if (cell_status != "&nbsp;") {
-		$(this).html("&nbsp;<input type='text' class='edit_cell' style='width: " + cell_width + "px; height: " + cell_height + "px' value='" + cell_value + "'/>");
+		if ($(this).hasClass("food"))
+			$(this).html("&nbsp;<textarea class='edit_cell' style='width: " + cell_width + "px; height: " + (cell_height * 3) + "px;'>" + cell_value + "</textarea>");
+		else
+			$(this).html("&nbsp;<input type='text' class='edit_cell' style='width: " + cell_width + "px; height: " + cell_height + "px' value='" + cell_value + "'/>");
 
 		setTimeout(function() { $(".edit_cell").focus().val(cell_value); }, 100);
 	}
@@ -86,8 +92,8 @@ $("#results").on("keydown", ".edit_cell", function(e) {
 
 $("#results").on("focusout", ".edit_cell", function(e) {
 	var parent = $(this).parent();
-	var cell_id = parent.prop("id");
 	var value = $(this).val();
+	var cell_id = parent.prop("id");
 
 	$.post("=save", {
 		cell_id:	cell_id,
@@ -103,10 +109,12 @@ $("#results").on("focusout", ".edit_cell", function(e) {
 				parent.addClass("none")
 
 			if (next_workout) {
-				$(parent).next().trigger("click");
+				parent.next().trigger("click");
 
 				next_workout = false;
 			}
+
+			$("#graph").load("=graph/" + current_graph + "/" + current_period);
 		}
 		else {
 			alert("FAILURE");
@@ -145,6 +153,8 @@ $("#input").on("click", "#save", function() {
 
 			setTimeout(function() { $("#" + next_category).trigger("click"); }, 50);
 			setTimeout(function() { $("#workout_" + next_workout).trigger("click"); }, 100);
+
+			$("#graph").load("=graph/" + current_graph + "/" + current_period);
 		}
 		else {
 			alert("FAILURE");
@@ -153,23 +163,23 @@ $("#input").on("click", "#save", function() {
 });
 
 $(document).ready(function() {
-	var chart = fetch_cookie("chart");
-	var period = fetch_cookie("period");
+	current_graph = parseInt(fetch_cookie("graph"));
+	current_period = fetch_cookie("period");
 
-	if (period != "week" && period != "month")
-		period = "year";
+	if (current_period != "week" && current_period != "month")
+		current_period = "year";
 
 	$("#input").load("=workout");
 
 	$("#results_header").load("=display/header", function() {
 		$("#results_body").load("=display/body/" + get_column_widths());
-
-		$("#graph").load("=graph/" + chart + "/" + period);
 		$("#results").css("min-width", results_width);
 
-		if (chart)
-			$("#w_" + chart).addClass("active");
+		$("#graph").load("=graph/" + current_graph + "/" + current_period);
 
-		$("#period_" + period).addClass("active");
+		if (current_graph)
+			$("#w_" + current_graph).addClass("active");
+
+		$("#period_" + current_period).addClass("active");
 	});
 });
