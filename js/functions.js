@@ -25,7 +25,7 @@ function get_column_widths() {
 		results_width += w;
 	});
 
-	results_width += 40 + 19 * 22; // padding+cols*(padding+margin+border)
+	results_width += 46 + 19 * 18; // padding+cols*(padding+margin+border)
 
 	column_widths = columns.join("-");
 

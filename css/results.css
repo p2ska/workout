@@ -1,3 +1,11 @@
+body, input, textarea {
+	font: 				13px Verdana, Arial;
+}
+
+input {
+	text-align: 		center;
+}
+
 #results .results {
 	position: 			relative;
 	clear: 				both;
@@ -11,8 +19,8 @@
     transition: 		background-color 0.2s linear;
 }
 
-#results .results > div:hover {
-	color: 				#ff0;
+#results .results > div:hover:not(.date) {
+	color: 				#09f;
 }
 
 #results .results:hover > div {
@@ -23,12 +31,10 @@
 	position: 			relative;
 	float: 				left;
 	text-align: 		center;
-	/*margin-top:		1px;
-	margin-right: 		1px;*/
 	margin: 			1px;
 	padding: 			5px;
-	padding-left: 		10px;
-	padding-right: 		10px;
+	padding-left: 		8px;
+	padding-right: 		8px;
 	border: 			1px solid #333;
 	border-radius: 		1px 3px 3px 3px;
 	overflow: 			hidden;
@@ -48,13 +54,22 @@
 	position: 			absolute;
 	top: 				0px;
 	left: 				0px;
-	padding-left: 		9px;
-	padding-right: 		9px;
-	color: 				#ff0;
-	background-color: 	#333;
-	border: 			1px solid #ff0 !important;
+	padding-left: 		7px;
+	padding-right: 		8px;
+	color: 				#fff;
+	background-color: 	rgba(60, 60, 60, 0.9);
+	border: 			1px solid #09f !important;
 	border-radius: 		1px 3px 3px 3px;
+	z-index: 			10;
 	outline: 			hidden;
+}
+
+#results input {
+	padding-top: 		0px;
+}
+
+#results textarea {
+	padding-top: 		4px;
 }
 
 /* row hovers / indications */
@@ -87,7 +102,9 @@
 #results .date {
 	border: 			1px solid #333;
 	background: 		none !important;
-	width: 				100px;
+	width: 				110px;
+	white-space: 		nowrap;
+	cursor: 			default;
 }
 
 #results .pull {
@@ -155,6 +172,8 @@
 }
 
 #results .weight {
+	padding-left: 		12px;
+	padding-right: 		12px;
 	border: 			1px solid #333;
 	background-color: 	#333;
 }

@@ -23,6 +23,7 @@
 	<div id="results_header"></div>
 	<div id="results_body"></div>
 </div>
+<div id="debug"></div>
 </body>
 <script type="text/javascript" src="js/jquery/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui/jquery-ui-1.12.1.min-localized.js"></script>

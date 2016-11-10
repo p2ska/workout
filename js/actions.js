@@ -1,17 +1,20 @@
-var current_graph	= false,
-	current_period	= false,
-	next_workout	= false,
-	results_width	= false,
-	column_widths	= false;
+// kõik toimingud/triggerid
+
+var current_graph	= false,	// valitud väärtuse graafik
+	current_period	= false,	// valitud periood (nädal, kuu, aasta)
+	results_width	= false,	// andmetabeli laius
+	column_widths	= false;	// veergude laiused (massiiv)
 
 var months = [ "jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember" ];
 
+// kategooria valimine ja toimingute laadimine
+
 $("#input").on("click", ".category", function() {
 	var that = $(this);
-	var workout = that.prop("id");
+	var category = that.prop("id");
 
 	$(".category").removeClass("underline")
-	$("#workouts").load("=workouts", { id: workout });
+	$("#workouts").load("=workouts", { id: category });
 
 	that.addClass("underline");
 });
@@ -60,14 +63,20 @@ $("#results").on("click", ".descr:not(.date, .food, .route)", function() {
 });
 
 $("#results").on("click", ".value", function() {
-	var cell_width = $(this).width();
-	var cell_height = $(this).height() + 6;
-	var cell_value = $(this).html();
+	var parent 		= $(this).parent();
+	var cell_width	= $(this).innerWidth() - 16;
+	var cell_height = $(this).innerHeight() - 2;
+	var cell_value	= $(this).html();
 	var cell_status = cell_value.substring(0, 6);
 
+	$(this).css("overflow", "visible");
+
+	if (cell_value == "-")
+		cell_value = "";
+
 	if (cell_status != "&nbsp;") {
-		if ($(this).hasClass("food"))
-			$(this).html("&nbsp;<textarea class='edit_cell' style='width: " + cell_width + "px; height: " + (cell_height * 3) + "px;'>" + cell_value + "</textarea>");
+		if ($(this).hasClass("food") || $(this).hasClass("route"))
+			$(this).html("&nbsp;<textarea class='edit_cell' style='width: " + cell_width + "px; height: " + (cell_height * 5 - 10) + "px;'>" + cell_value + "</textarea>");
 		else
 			$(this).html("&nbsp;<input type='text' class='edit_cell' style='width: " + cell_width + "px; height: " + cell_height + "px' value='" + cell_value + "'/>");
 
@@ -76,27 +85,38 @@ $("#results").on("click", ".value", function() {
 });
 
 $("#results").on("keydown", ".edit_cell", function(e) {
-	var key = e.keyCode || e.which;
+	var keycode = e.keyCode || e.which;
 
-	if (key == 9) {
+	if (keycode == 9 || keycode == 13 || keycode == 27) {
 		e.preventDefault();
 
-		next_workout = true;
-
-		$(":focus").blur();
-	}
-	else if (key == 13) {
+		$(this).data("keycode", keycode);
 		$(":focus").blur();
 	}
 });
 
 $("#results").on("focusout", ".edit_cell", function(e) {
-	var parent = $(this).parent();
-	var value = $(this).val();
-	var cell_id = parent.prop("id");
+	var parent		= $(this).parent();
+	var value		= $(this).val();
+	var keycode		= $(this).data("keycode");
+	var cell_id		= parent.prop("id");
+	var date 		= cell_id.substring(2, 12);
+	var workout		= cell_id.substring(13);
+	var next_workout= false;
+
+	parent.css("overflow", "hidden");
+
+	if (!keycode || keycode == 27) {
+		parent.load("=display/element/" + workout + "/" + date);
+
+		return false;
+	}
+	else if (keycode == 9)
+		next_workout = true;
 
 	$.post("=save", {
-		cell_id:	cell_id,
+		date:		date,
+		workout:	workout,
 		value: 		value
 	}).done(function(result) {
 		if (result != "NOK") {
@@ -108,11 +128,8 @@ $("#results").on("focusout", ".edit_cell", function(e) {
 			if (c == "-" || c == "" || c == 0)
 				parent.addClass("none")
 
-			if (next_workout) {
+			if (next_workout)
 				parent.next().trigger("click");
-
-				next_workout = false;
-			}
 
 			$("#graph").load("=graph/" + current_graph + "/" + current_period);
 		}
@@ -169,6 +186,7 @@ $(document).ready(function() {
 	if (current_period != "week" && current_period != "month")
 		current_period = "year";
 
+	$("#debug").load("=maintenance");
 	$("#input").load("=workout");
 
 	$("#results_header").load("=display/header", function() {

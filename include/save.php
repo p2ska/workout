@@ -1,14 +1,12 @@
 <?php
 
-if (isset($_POST["cell_id"])) {
+if (isset($_POST["workout"])) {
 	$rounds = $reps = 0;
 	$descr = "";
 
-	list($tmp, $date, $workout) = explode("_", clean_input($_POST["cell_id"]));
-	$value = clean_input($_POST["value"]);
-
-	if (!$workout)
-		return false;
+	$date	= clean_input($_POST["date"]);
+	$workout= clean_input($_POST["workout"]);
+	$value	= clean_input($_POST["value"]);
 
 	$r = $d->query("select type from workouts where id = ?", [ $workout ], true);
 
