@@ -1,13 +1,9 @@
-// kõik toimingud/triggerid
-
-var current_graph	= false,	// valitud väärtuse graafik
-	current_period	= false,	// valitud periood (nädal, kuu, aasta)
-	results_width	= false,	// andmetabeli laius
-	column_widths	= false;	// veergude laiused (massiiv)
+var current_graph	= false,
+	current_period	= false,
+	results_width	= false,
+	column_widths	= false;
 
 var months = [ "jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember" ];
-
-// kategooria valimine ja toimingute laadimine
 
 $("#input").on("click", ".category", function() {
 	var that = $(this);
@@ -19,6 +15,7 @@ $("#input").on("click", ".category", function() {
 	that.addClass("underline");
 });
 
+/*
 $("#input").on("click", ".workout", function() {
 	var id = $(this).data("id");
 
@@ -29,9 +26,9 @@ $("#input").on("click", ".workout", function() {
 
 	setTimeout(function() { $("input[type='text'], textarea").focus(); }, 100);
 });
+*/
 
 $("#period").on("click", ".period", function() {
-	current_graph = $("#results .active").data("workout");
 	current_period = $(this).data("length");
 
 	$("#period .period").removeClass("active");
@@ -131,7 +128,8 @@ $("#results").on("focusout", ".edit_cell", function(e) {
 			if (next_workout)
 				parent.next().trigger("click");
 
-			$("#graph").load("=graph/" + current_graph + "/" + current_period);
+			if (workout == current_graph)
+				$("#graph").load("=graph/" + current_graph + "/" + current_period);
 		}
 		else {
 			alert("FAILURE");
@@ -171,7 +169,8 @@ $("#input").on("click", "#save", function() {
 			setTimeout(function() { $("#" + next_category).trigger("click"); }, 50);
 			setTimeout(function() { $("#workout_" + next_workout).trigger("click"); }, 100);
 
-			$("#graph").load("=graph/" + current_graph + "/" + current_period);
+			if (workout == current_graph)
+				$("#graph").load("=graph/" + current_graph + "/" + current_period);
 		}
 		else {
 			alert("FAILURE");

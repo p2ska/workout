@@ -19,13 +19,15 @@ $v = [ $id ];
 
 if (isset($p->args[1]) && $p->args[1]) {
 	if ($p->args[1] == "week")
-		$v[] = date("Y-m-d", time() - 7 * 86400);
+		$start = time() - 7 * 86400;
 	elseif ($p->args[1] == "month")
-		$v[] = date("Y-m-d", time() - 30 * 86400);
+		$start = time() - 30 * 86400;
 	else
-		$v[] = date("Y-m-d", 0);
+		$start = 0;
 
 	$q = "select * from workout where workout_id = ? && date >= ? order by date";
+
+	$v[] = date("Y-m-d", $start);
 }
 else {
 	$q = "select * from workout where workout_id = ? order by date";
@@ -33,18 +35,47 @@ else {
 
 $d->query($q, $v);
 
-foreach ($d->get_all() as $o) {
-	if ($o->reps == 0 && $o->rounds == 0 && $o->descr == "")
-		continue;
+if (true) {
+	$last_ts = false;
 
-	list($yy, $mm, $dd) = explode("-", $o->date);
+	foreach ($d->get_all() as $o) {
+		list($yy, $mm, $dd) = explode("-", $o->date);
 
-	$label[$o->date] = $dd;
+		$ts = mktime(0, 0, 0, $mm, $dd, $yy);
 
-	if ($o->rounds)
-		$data[$o->date] = $o->rounds * $o->reps;
-	else
-		$data[$o->date] = $o->reps;
+		if ($last_ts && $ts > ($last_ts + 86400)) {
+			for ($a = $last_ts + 86400; $a < ($ts - 42200); $a += 86400) {
+				$cd = date("Y-m-d", $a);
+
+				$label[$cd] = date("d", $a);
+				$data[$cd] = NULL;
+			}
+		}
+
+		$label[$o->date] = $dd;
+
+		if ($o->rounds)
+			$data[$o->date] = $o->rounds * $o->reps;
+		else
+			$data[$o->date] = $o->reps;
+
+		$last_ts = $ts;
+	}
+}
+else {
+	foreach ($d->get_all() as $o) {
+		if ($o->reps == 0 && $o->rounds == 0 && $o->descr == "")
+			continue;
+
+		list($yy, $mm, $dd) = explode("-", $o->date);
+
+		$label[$o->date] = $dd;
+
+		if ($o->rounds)
+			$data[$o->date] = $o->rounds * $o->reps;
+		else
+			$data[$o->date] = $o->reps;
+	}
 }
 
 $color = hex_color($workouts[$id]->color);
@@ -55,27 +86,27 @@ $dataset = "{".
 	"backgroundColor: 'rgba(". $color. ", 0.2)', ".
 	"borderColor: 'rgba(". $color. ", 1)', ".
 	"borderWidth: 1".
-"}";
+	"}";
 
 ?>
 <canvas id="chart" width="1000" height="200"></canvas>
 <script>
-var ctx = $("#chart");
-var chart = new Chart(ctx, {
-    type: "line",
-    data: {
-        labels: [ <?php echo implode(",", $label); ?> ],
-        datasets: [ <?php echo $dataset; ?> ]
-    },
-    options: {
-		maintainAspectRatio: false,
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: false
-                }
-            }]
-        }
-    }
-});
+	var ctx = $("#chart");
+	var chart = new Chart(ctx, {
+		type: "line",
+		data: {
+			labels: [ <?php echo implode(",", $label); ?> ],
+			datasets: [ <?php echo $dataset; ?> ]
+		},
+		options: {
+			maintainAspectRatio: false,
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: false
+					}
+				}]
+			}
+		}
+	});
 </script>

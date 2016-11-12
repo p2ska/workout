@@ -24,7 +24,7 @@ class DATABASE {
 			$this->query("set names '". $charset. "' collate '". $collation. "'");
 	}
 
-	function query($query, $values = false, $return_result = false) {
+	function query($query, $values = false, $return = false) {
 		$this->rows = $this->error = $param_count = 0;
 		$this->error_msg = "";
 
@@ -63,11 +63,18 @@ class DATABASE {
 		$this->rows = @mysql_num_rows($this->result);
 		$this->insert_id = @mysql_insert_id($this->connection);
 
-		if ($return_result) {
-			if ($this->rows == 1)
-				return $this->get_obj($return_result);
-			else
-				return $this->get_all($return_result);
+		if ($return) {
+			if (is_string($return)) {
+				$obj = $this->get_obj();
+
+				if (isset($obj->{ $return }))
+					return $obj->{ $return };
+				else
+					return false;
+			}
+			else {
+				return $this->get_all();
+			}
 		}
 
 		$this->error = @mysql_errno($this->connection);

@@ -8,9 +8,9 @@ if (isset($_POST["workout"])) {
 	$workout= clean_input($_POST["workout"]);
 	$value	= clean_input($_POST["value"]);
 
-	$r = $d->query("select type from workouts where id = ?", [ $workout ], true);
+	$type = $d->query("select type from workouts where id = ?", [ $workout ], "type");
 
-	switch ($r->type) {
+	switch ($type) {
 		case "rounds_reps":
 			if (substr_count($value, "x")) {
 				list($rounds, $reps) = explode("x", $value);

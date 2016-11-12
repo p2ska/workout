@@ -159,7 +159,7 @@ input {
 
 #results .bike {
 	border: 			1px solid #333;
-	background-color: 	#333; /*rgba(100, 200, 200, 0.1);*/
+	background-color: 	#333;
 }
 
 #results .route {
