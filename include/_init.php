@@ -30,27 +30,6 @@ $d->connect(DB_HOST, DB_NAME, DB_USER, DB_PASS, DB_CHARSET, DB_COLLATION);
 
 // FUNCTIONS
 
-function get_dump($var) {
-    ob_start();
-
-    print_r($var);
-
-    return ob_get_clean();
-}
-
-function p_log($file, $str, $append = true) {
-    $path = ROOT. "/logs/";
-
-    $fp = fopen($path . $file, $append ? "a" : "w");
-
-	fputs($fp, date("d.m.Y H:i:s"). "\n");
-	fputs($fp, "--------------------------------------------------\n");
-	fputs($fp, get_dump($str). "\n");
-	fputs($fp, "--------------------------------------------------\n");
-
-    fclose($fp);
-}
-
 function compare_strings($str1, $str2, $encoding = false) {
     if (!$encoding)
         $encoding = mb_internal_encoding();
@@ -81,4 +60,25 @@ function clean_input($input, $in_length = 255, $out_length = 255) {
 
 function hex_color($hex) {
 	return hexdec(substr($hex, 1, 2)). ", ". hexdec(substr($hex, 3, 2)). ", ". hexdec(substr($hex, 5, 2));
+}
+
+function get_dump($var) {
+    ob_start();
+
+    print_r($var);
+
+    return ob_get_clean();
+}
+
+function p_log($file, $str, $append = true) {
+    $path = ROOT. "/logs/";
+
+    $fp = fopen($path . $file, $append ? "a" : "w");
+
+	fputs($fp, date("d.m.Y H:i:s"). "\n");
+	fputs($fp, "--------------------------------------------------\n");
+	fputs($fp, get_dump($str). "\n");
+	fputs($fp, "--------------------------------------------------\n");
+
+    fclose($fp);
 }

@@ -15,18 +15,20 @@ $("#input").on("click", ".category", function() {
 	that.addClass("underline");
 });
 
-/*
 $("#input").on("click", ".workout", function() {
 	var id = $(this).data("id");
 
-	$("#workout").load("=input", { id: id });
+	$("#workout").load("=input/" + id);
 
 	$(".workout").removeClass("active");
 	$("#workout_" + id).addClass("active");
 
 	setTimeout(function() { $("input[type='text'], textarea").focus(); }, 100);
 });
-*/
+
+$("#progress").on("click", ".next_workout", function() {
+	alert("working on it");
+});
 
 $("#period").on("click", ".period", function() {
 	current_period = $(this).data("length");
@@ -43,11 +45,13 @@ $("#results").on("click", ".descr:not(.date, .food, .route)", function() {
 	current_graph = $(this).data("workout");
 
  	if ($(this).hasClass("active")) {
+		/*
 		$(this).removeClass("active");
 
 		$("#graph").html("");
 
 		eat_cookie("graph");
+		*/
 	}
 	else {
 		$(".descr").removeClass("active");

@@ -1,20 +1,20 @@
 <?php
 
-if (!isset($_POST["id"]))
+if (!(isset($p->args[0]) && $p->args[0]))
 	return false;
 
-$workout = intval($_POST["id"]);
+$workout = intval($p->args[0]);
 
 $o = $d->query("select * from workouts where id = ? limit 1", [ $workout ], true);
 
-if (!isset($o->type))
+if (!isset($o[0]->type))
 	return false;
 
-$last_value = get_last_value($d, $o);
+$last_value = get_last_value($d, $o[0]);
 
 echo "<input type='hidden' id='hidden'/>";
 
-switch ($o->type) {
+switch ($o[0]->type) {
 	case "rounds_reps":
 		echo "<input type='hidden' id='descr' value=''/>";
 		echo "<select id='rounds'>";
@@ -73,7 +73,7 @@ function get_last_value($d, $workout) {
 	type="submit"
 	id="save"
 	data-workout="<?php echo $workout; ?>"
-	data-next-category="<?php echo $next->category; ?>"
+	data-next-category="<?php echo $next[0]->category; ?>"
 	data-next-workout="<?php echo $next_workout; ?>"
 	value="Lisa"
 />

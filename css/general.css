@@ -1,3 +1,7 @@
+html, body, input, textarea {
+	font: 				13px Verdana, Arial;
+}
+
 html, body {
 	padding: 			0px;
 	margin: 			0px;
@@ -5,6 +9,16 @@ html, body {
 	font-size:  		13px;
 	color: 				#eee;
 	background-color: 	#222;
+}
+
+body {
+	-webkit-touch-callout: 	none; /* iOS Safari */
+    -webkit-user-select: 	none; /* Chrome/Safari/Opera */
+     -khtml-user-select: 	none; /* Konqueror */
+       -moz-user-select: 	none; /* Firefox */
+        -ms-user-select: 	none; /* Internet Explorer/Edge */
+            user-select: 	none; /* Non-prefixed version, currently
+                                  not supported by any browser */
 }
 
 #header {
@@ -18,14 +32,21 @@ html, body {
 	height: 			10px;
 }
 
-#period {
+#progress {
 	position: 			absolute;
-	left: 				50px;
+	left: 				200px;
 	top: 				10px;
 	z-index: 			3;
 }
 
-#period .period {
+#period {
+	position: 			absolute;
+	left: 				10px;
+	top: 				10px;
+	z-index: 			3;
+}
+
+#period .period, #progress .next_workout {
 	cursor: 			pointer;
 	margin: 			0px;
 	padding: 			2px;
@@ -41,7 +62,6 @@ html, body {
 }
 
 #input {
-	display: 			none;
 	position: 			absolute;
 	top: 				0px;
 	left: 				0px;
@@ -81,6 +101,10 @@ html, body {
 	display: 			none;
 }
 
+input {
+	text-align: 		center;
+}
+
 hr {
 	height: 			1px;
 	border: 			0px;
@@ -98,14 +122,4 @@ hr {
 
 .underline {
 	text-decoration: 	underline;
-}
-
-body {
-	-webkit-touch-callout: 	none; /* iOS Safari */
-    -webkit-user-select: 	none; /* Chrome/Safari/Opera */
-     -khtml-user-select: 	none; /* Konqueror */
-       -moz-user-select: 	none; /* Firefox */
-        -ms-user-select: 	none; /* Internet Explorer/Edge */
-            user-select: 	none; /* Non-prefixed version, currently
-                                  not supported by any browser */
 }

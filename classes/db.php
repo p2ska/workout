@@ -65,12 +65,12 @@ class DATABASE {
 
 		if ($return) {
 			if (is_string($return)) {
-				$obj = $this->get_obj();
+				$o = $this->get_obj();
 
-				if (isset($obj->{ $return }))
-					return $obj->{ $return };
+				if (isset($o->{ $return }))
+					return $o->{ $return };
 				else
-					return false;
+					return $o;
 			}
 			else {
 				return $this->get_all();
@@ -83,6 +83,29 @@ class DATABASE {
 		return $this->result;
 	}
 
+	function get_obj($field = false) {
+		$o = @mysql_fetch_object($this->result);
+
+		if (is_string($field) && isset($o->{ $field }))
+			return $o->{ $field };
+		else
+			return $o;
+	}
+
+	function get_all($field = false) {
+		$results = [];
+
+		while ($o = @mysql_fetch_object($this->result))
+			if ($o) {
+				if (is_string($field) && isset($o->{ $field }))
+					$results[] = $o->{ $field };
+				else
+					$results[] = $o;
+			}
+
+		return $results;
+	}
+
 	function error() {
 		$this->error = @mysql_errno($this->connection);
 		$this->error_msg = @mysql_error($this->connection). " [". $this->query. "]";
@@ -90,52 +113,13 @@ class DATABASE {
 		return false;
 	}
 
-	function get_obj($field = false) {
-		$obj = @mysql_fetch_object($this->result);
-
-		if ($field && is_string($field) && isset($obj->{ $field }))
-			return $obj->{ $field };
-		else
-			return $obj;
-	}
-
-	function get_all($field = false) {
-		$results = [];
-
-		while ($obj = @mysql_fetch_object($this->result))
-			if ($obj) {
-				if ($field && is_string($field) && isset($obj->{ $field }))
-					$results[] = $obj->{ $field };
-				else
-					$results[] = $obj;
-			}
-
-		return $results;
-	}
-
-	function get_value($table, $value, $where = false, $arg = false) {
-		if ($arg && !is_array($arg))
-			$arg = [ $arg ];
-
-		$q = "select ". $value. " as value from ". $table. ($where ? " where ". $where : ""). " limit 1";
-
-		$this->query($q, $arg);
-
-		if ($this->rows) {
-			$result = $this->get_obj();
-
-			return $result->value;
-		}
-		else {
-			return false;
-		}
-	}
-
 	function free() {
 		@mysql_free_result($this->result);
 	}
 
     function close() {
+		$this->free();
+
 		@mysql_close($this->connection);
 	}
 }
