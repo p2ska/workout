@@ -13,10 +13,6 @@
 </head>
 <body>
 <!--<div id="input"></div>-->
-<div id="progress">
-	<span id="workout_w1" class="next_workout" data-category="w1">sangpomm</span>
-	<span id="workout_w2" class="next_workout" data-category="w2">hantel</span>
-</div>
 <div id="period">
 	<span id="period_week" class="period" data-length="week">nädal</span>
 	<span id="period_month" class="period" data-length="month">kuu</span>

@@ -11,7 +11,7 @@
     transition: 		background-color 0.2s linear;
 }
 
-#results .results > div:hover:not(.date) {
+#results .results > div:hover {
 	color: 				#09f;
 }
 
@@ -94,7 +94,7 @@
 	background: 		none !important;
 	width: 				110px;
 	white-space: 		nowrap;
-	cursor: 			default;
+	cursor: 			pointer;
 }
 
 #results .pull {

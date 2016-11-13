@@ -32,13 +32,6 @@ body {
 	height: 			10px;
 }
 
-#progress {
-	position: 			absolute;
-	left: 				200px;
-	top: 				10px;
-	z-index: 			3;
-}
-
 #period {
 	position: 			absolute;
 	left: 				10px;

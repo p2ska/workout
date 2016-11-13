@@ -26,10 +26,6 @@ $("#input").on("click", ".workout", function() {
 	setTimeout(function() { $("input[type='text'], textarea").focus(); }, 100);
 });
 
-$("#progress").on("click", ".next_workout", function() {
-	alert("working on it");
-});
-
 $("#period").on("click", ".period", function() {
 	current_period = $(this).data("length");
 
