@@ -1,16 +1,19 @@
 <?php
 
-$today = time();
+$current_ts = mktime(12, 0, 0, date("m"), date("d"), date("Y"));
 
-for ($day = 30; $day >= 0; $day--) {
-    $ct = date("Y-m-d", $today - $day * 86400);
+$last_entry = $d->query("select date from workout order by date desc limit 1", false, "date");
 
-	$d->query("select id from workout where date = ? limit 1", [ $ct ]);
+if ($last_entry) {
+	list($yy, $mm, $dd) = explode("-", $last_entry);
 
-	if (!$d->rows) {
-		$d->query(
-			"insert into workout (date, workout_id, rounds, reps, descr, added) values (?, ?, ?, ?, ?, ?)",
-			[ $ct, 13, 0, 0, "", date("Y-m-d H:i:s") ]
-		);
+	$last_ts = mktime(12, 0, 0, $mm, $dd, $yy) + 86400;
+
+	if ($last_ts && $last_ts <= $current_ts) {
+		for ($a = $last_ts; $a <= $current_ts; $a += 86400)
+			$d->query(
+				"insert into workout (date, workout_id, rounds, reps, descr, added) values (?, ?, ?, ?, ?, ?)",
+				[ date("Y-m-d", $a), 13, 0, 0, "", date("Y-m-d H:i:s") ]
+			);
 	}
 }

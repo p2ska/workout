@@ -70,15 +70,20 @@ function get_dump($var) {
     return ob_get_clean();
 }
 
-function p_log($file, $str, $append = true) {
+function p_log($file, $str, $append = true, $print_date = true) {
     $path = ROOT. "/logs/";
 
     $fp = fopen($path . $file, $append ? "a" : "w");
 
-	fputs($fp, date("d.m.Y H:i:s"). "\n");
-	fputs($fp, "--------------------------------------------------\n");
+	if ($print_date) {
+		fputs($fp, date("d.m.Y H:i:s"). "\n");
+		fputs($fp, "--------------------------------------------------\n");
+	}
+
 	fputs($fp, get_dump($str). "\n");
-	fputs($fp, "--------------------------------------------------\n");
+
+	if ($print_date)
+		fputs($fp, "--------------------------------------------------\n");
 
     fclose($fp);
 }

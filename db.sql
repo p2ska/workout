@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `workout` (
   `reps` float NOT NULL,
   `descr` varchar(255) COLLATE utf8_estonian_ci NOT NULL,
   `added` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=489 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1377 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci;
 
 CREATE TABLE IF NOT EXISTS `workouts` (
   `id` int(11) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `workouts` (
   `sort` tinyint(4) NOT NULL,
   `unit` varchar(10) COLLATE utf8_estonian_ci NOT NULL,
   `color` varchar(16) COLLATE utf8_estonian_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci;
 
 ALTER TABLE `workout`
   ADD PRIMARY KEY (`id`),
