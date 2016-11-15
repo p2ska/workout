@@ -156,7 +156,7 @@
 	border: 			1px solid #333;
 	background-color: 	#333;
 	text-align: 		left;
-	width: 				300px;
+	width: 				240px;
 	white-space: 		nowrap;
 	text-overflow: 		ellipsis;
 }
@@ -192,7 +192,7 @@
 	border: 			1px solid #333;
 	background-color: 	#333;
 	text-align: 		left;
-	width: 				400px;
+	width: 				300px;
 	white-space: 		nowrap;
 	text-overflow: 		ellipsis;
 }
