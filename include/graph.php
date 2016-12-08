@@ -35,7 +35,7 @@ else {
 
 $d->query($q, $v);
 
-if (true) {
+if (false) {
 	$last_ts = false;
 
 	foreach ($d->get_all() as $o) {
