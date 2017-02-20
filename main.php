@@ -14,9 +14,12 @@
 <body>
 <!--<div id="input"></div>-->
 <div id="period">
-	<span id="period_week" class="period" data-length="week">nädal</span>
+	<span id="stats_period"></span>
+<!--
+  <span id="period_week" class="period" data-length="week">nädal</span>
 	<span id="period_month" class="period" data-length="month">kuu</span>
 	<span id="period_year" class="period" data-length="year">aasta</span>
+-->
 </div>
 <div id="graph"></div>
 <div id="results">

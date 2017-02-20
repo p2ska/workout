@@ -27,14 +27,37 @@ $("#input").on("click", ".workout", function() {
 });
 
 $("#period").on("click", ".period", function() {
-	current_period = $(this).data("length");
+	var cp = $(this);
 
-	$("#period .period").removeClass("active");
-	$(this).addClass("active");
+	var ct = cp.hasClass("year");
+	var cy = cp.data("year");
+	var cm = cp.data("month");
 
-	$("#graph").load("=graph/" + current_graph + "/" + current_period);
+	if (ct) {
+		if (cp.hasClass("selected"))
+			$("#period_" + cy + " > .period").removeClass("selected");
+		else
+			$("#period_" + cy + " > .period").addClass("selected");
+	}
+	else {
+		if (cp.hasClass("selected")) {
+			if ($("#year_" + cy).hasClass("selected")) {
+				$("#period_" + cy + " > .period").removeClass("selected");
 
-	bake_cookie("period", current_period, 30);
+				cp.addClass("selected");
+			}
+			else {
+				cp.removeClass("selected");
+			}
+		}
+		else {
+			cp.addClass("selected");
+		}
+	}
+
+	//$("#graph").load("=graph/" + current_graph + "/" + current_period);
+
+	//bake_cookie("period", current_period, 30);
 });
 
 $("#results").on("click", ".descr:not(.date, .food, .route)", function() {
@@ -103,7 +126,7 @@ $("#results").on("focusout", ".edit_cell", function(e) {
 
 	parent.css("overflow", "hidden");
 
-	if (!keycode || keycode == 27) {
+	if (keycode == 27) {
 		parent.load("=display/element/" + workout + "/" + date);
 
 		return false;
@@ -180,13 +203,16 @@ $("#input").on("click", "#save", function() {
 
 $(document).ready(function() {
 	current_graph = parseInt(fetch_cookie("graph"));
-	current_period = fetch_cookie("period");
 
-	if (current_period != "week" && current_period != "month")
-		current_period = "year";
+	//current_period = fetch_cookie("period");
+
+	//if (current_period != "week" && current_period != "month")
+
+	current_period = "year";
 
 	$("#debug").load("=maintenance");
 	$("#input").load("=workout");
+	$("#stats_period").load("=stats_period");
 
 	$("#results_header").load("=display/header", function() {
 		$("#results_body").load("=display/body/" + get_column_widths());
