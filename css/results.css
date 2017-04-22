@@ -4,11 +4,11 @@
 }
 
 #results .results > div {
-    -webkit-transition: background-color 0.2s linear;
-    -moz-transition: 	background-color 0.2s linear;
-    -ms-transition: 	background-color 0.2s linear;
-    -o-transition: 		background-color 0.2s linear;
-    transition: 		background-color 0.2s linear;
+	-webkit-transition: background-color 0.2s linear;
+	-moz-transition: 	background-color 0.2s linear;
+	-ms-transition: 	background-color 0.2s linear;
+	-o-transition: 		background-color 0.2s linear;
+	transition: 		background-color 0.2s linear;
 }
 
 #results .results > div:hover {
@@ -84,6 +84,30 @@
 }
 
 /* workout cells */
+
+#results .suggestion_mild {
+	color:				#888;
+   -webkit-animation:	fadeinout 3s infinite;
+   -moz-animation:		fadeinout 3s infinite;
+   -o-animation:		fadeinout 3s infinite;
+    animation:			fadeinout 3s infinite;
+}
+
+#results .suggestion_normal {
+	color:				#a96 !important;
+   -webkit-animation:	fadeinout 2s infinite;
+   -moz-animation:		fadeinout 2s infinite;
+   -o-animation:		fadeinout 2s infinite;
+    animation:			fadeinout 2s infinite;
+}
+
+#results .suggestion_strong {
+	color:				#f96 !important;
+   -webkit-animation:	fadeinout 1.5s infinite;
+   -moz-animation:		fadeinout 1.5s infinite;
+   -o-animation:		fadeinout 1.5s infinite;
+    animation:			fadeinout 1.5s infinite;
+}
 
 #results .none {
 	background:			none !important;
@@ -205,4 +229,27 @@
 	width: 				300px;
 	white-space: 		nowrap;
 	text-overflow: 		ellipsis;
+}
+
+@keyframes fadeinout {
+	50%					{ opacity: 0.5; }
+	100%				{ opacity: 1; }
+}
+
+@-o-keyframes fadeinout{
+	0%					{ opacity: 1; }
+	50%					{ opacity: 0.5; }
+	100%				{ opacity: 1; }
+}
+
+@-moz-keyframes fadeinout{
+	0%					{ opacity: 1; }
+	50%					{ opacity: 0.5; }
+	100%				{ opacity: 1; }
+}
+
+@-webkit-keyframes fadeinout{
+	0%					{ opacity: 1; }
+	50%					{ opacity: 0.5; }
+	100%				{ opacity: 1; }
 }

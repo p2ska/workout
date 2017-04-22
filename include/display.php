@@ -37,15 +37,16 @@ foreach ($d->get_all() as $o) {
 
 if (isset($p->args[0]) && $p->args[0] == "element") {
 	$result = array_shift($results);
-	echo results($p, $workouts_id[$id], $result);
+
+	echo results($d, $p, $workouts_id[$id], $result);
 }
 elseif (isset($p->args[0]) && $p->args[0] == "header") {
 	echo "<div class='descr date'>Kuupäev</div>";
 
-    if (!isset($workouts))
-        return false;
+	if (!isset($workouts))
+		return false;
 
-    foreach ($workouts as $w)
+	foreach ($workouts as $w)
 		echo "<div id='w_". $w->id. "' class='descr ". $w->name. "' data-workout='". $w->id. "'>". $w->title. "</div>";
 
 	echo "<br/>";
@@ -99,7 +100,7 @@ else {
 			if (isset($column_widths))
 				$width = $column_widths[$count++];
 
-			echo results($p, $workouts_id[$w->id], $result, $width);
+			echo results($d, $p, $workouts_id[$w->id], $result, $width);
 		}
 
 		echo "</div>";
@@ -108,9 +109,11 @@ else {
 	}
 }
 
-function results($p, $workout, $value, $width = false) {
+function results($d, $p, $workout, $value, $width = false) {
 	$val = "-";
 	$bg = "";
+
+	$today_ts = mktime(0, 0, 0, date("n"), date("j"), date("Y"));
 
 	if (isset($value[$workout->id])) {
 		switch ($workout->type) {
@@ -136,9 +139,68 @@ function results($p, $workout, $value, $width = false) {
 	if ($val == "-")
 		$bg = " none";
 
+	if ($val == "-" && $p->date == date("Y-m-d") && $workout->suggestions) {
+		$d->query("select date, rounds, reps from workout where workout_id = ? order by added desc limit 5", [ $workout->id ]);
+
+		if ($d->rows) {
+			$suggestions = explode("-", $workout->suggestions);
+
+			$latest = $d->get_all();
+
+			$last = $latest[0];
+			$last_ts = strtotime($last->date);
+
+			$days_ago = ($today_ts - $last_ts) / 86400;
+
+			if ($days_ago >= $suggestions[2])
+				$suggestion = "strong";
+			elseif ($days_ago >= $suggestions[1])
+				$suggestion = "normal";
+			elseif ($days_ago >= $suggestions[0])
+				$suggestion = "mild";
+			else
+				$suggestion = false;
+
+			/*
+			foreach ($latest as $l) {
+				if ($workout->type == "rounds_reps") {
+					$next_rounds = $l->rounds;
+					$next_reps = $l->reps + 1;
+				}
+				else {
+					$next_reps = $l->reps + 1;
+				}
+			}
+			*/
+
+			if ($suggestion) {
+				$next_rounds = $next_reps = false;
+
+				if ($workout->type == "rounds_reps") {
+					$next_rounds = $last->rounds;
+					$next_reps = $last->reps + 1;
+				}
+				else {
+					$next_reps = $last->reps + 1;
+				}
+
+				if ($next_rounds)
+					$next = $next_rounds. "x". $next_reps;
+				else
+					$next = $next_reps;
+
+				$val = $next;
+			}
+		}
+	}
+	else {
+		$suggestion = false;
+	}
+
 	$result = "<div id='f_". $p->date. "_". $workout->id. "' ";
-	$result.= "class='value ". $workout->name. $bg. "'";
-	$result.= ($width ? " style='width: ". $width. "px'" : ""). ">". $val. "</div>";
+	$result.= "class='value ". ($suggestion ? " suggestion_".$suggestion. " " : ""). $workout->name. $bg. "'";
+	$result.= ($width ? " style='width: ". $width. "px'" : "");
+	$result.= ">". $val. "</div>";
 
 	return $result;
 }
