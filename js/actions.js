@@ -148,6 +148,13 @@ $("#results").on("focusout", ".edit_cell", function(e) {
 			if (c == "-" || c == "" || c == 0)
 				parent.addClass("none")
 
+			if (parent.hasClass("suggestion_strong"))
+				parent.removeClass("suggestion_strong");
+			else if (parent.hasClass("suggestion_normal"))
+				parent.removeClass("suggestion_normal");
+			else if (parent.hasClass("suggestion_mild"))
+				parent.removeClass("suggestion_mild");
+
 			if (next_workout)
 				parent.next().trigger("click");
 
