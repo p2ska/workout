@@ -11,8 +11,6 @@ list($yy, $mm, $dd) = explode("-", $last_entry);
 
 $last_ts = mktime(10, 0, 0, $mm, $dd, $yy) + 86400;
 
-p_log("a.txt", $last_ts);
-
 if ($last_ts && $last_ts <= $current_ts) {
 	for ($a = $last_ts; $a <= $current_ts; $a += 86400)
         $d->query(
