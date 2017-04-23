@@ -179,7 +179,7 @@ function results($d, $p, $workout, $value, $width = false) {
 				if ($workout->type == "rounds_reps") {
 					$next_rounds = $last->rounds;
 
-					if ($workout->id == 2)
+					if (in_array($workout->id, [ 2, 6, 8 ]))
 						$next_reps = $last->reps;
 					else
 						$next_reps = $last->reps + 1;
