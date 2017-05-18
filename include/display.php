@@ -47,7 +47,8 @@ elseif (isset($p->args[0]) && $p->args[0] == "header") {
 		return false;
 
 	foreach ($workouts as $w)
-		echo "<div id='w_". $w->id. "' class='descr ". $w->name. "' data-workout='". $w->id. "'>". $w->title. "</div>";
+		if (!$w->hide)
+			echo "<div id='w_". $w->id. "' class='descr ". $w->name. "' data-workout='". $w->id. "'>". $w->title. "</div>";
 
 	echo "<br/>";
 }
@@ -97,6 +98,9 @@ else {
 		$width = false;
 
 		foreach ($workouts as $w) {
+			if ($w->hide)
+				continue;
+
 			if (isset($column_widths))
 				$width = $column_widths[$count++];
 
@@ -142,6 +146,8 @@ function results($d, $p, $workout, $value, $width = false) {
 	if ($val == "-" && $p->date == date("Y-m-d") && $workout->suggestions) {
 		$d->query("select date, rounds, reps from workout where workout_id = ? order by added desc limit 5", [ $workout->id ]);
 
+		$suggestion = false;
+
 		if ($d->rows) {
 			$suggestions = explode("-", $workout->suggestions);
 
@@ -158,8 +164,6 @@ function results($d, $p, $workout, $value, $width = false) {
 				$suggestion = "normal";
 			elseif ($days_ago >= $suggestions[0])
 				$suggestion = "mild";
-			else
-				$suggestion = false;
 
 			/*
 			foreach ($latest as $l) {
