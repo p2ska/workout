@@ -1,5 +1,8 @@
 <?php
 
+$p->routes = fetch_routes();
+$p->colors = [ "#eef", "#bbf", "#cfc" ];
+
 $d->query("select * from workouts order by sort");
 
 foreach ($d->get_all() as $o) {
@@ -208,10 +211,48 @@ function results($d, $p, $workout, $value, $width = false) {
 		$suggestion = false;
 	}
 
-	$result = "<div id='f_". $p->date. "_". $workout->id. "' ";
-	$result.= "class='value ". ($suggestion ? " suggestion_".$suggestion. " " : ""). $workout->name. $bg. "'";
-	$result.= ($width ? " style='width: ". $width. "px'" : "");
-	$result.= ">". $val. "</div>";
+	if ($workout->id == 22) {
+		if (!empty($p->routes[$p->date])) {
+			$val = "";
+			$count = 0;
+
+			foreach($p->routes[$p->date] as $route) {
+				$val .= "<a href='/workout/routes/". $route. "' target='_blank' style='color: ". $p->colors[$count++]. "'>";
+				$val .= "<span class='fa fa-map-marker'></span></a> ";
+			}
+		}
+
+		$result = "<div class='date'". ($width ? " style='width: ". $width. "px'" : ""). ">". $val. "</div>";
+	}
+	else {
+		$result = "<div id='f_". $p->date. "_". $workout->id. "' ";
+		$result.= "class='value ". ($suggestion ? " suggestion_".$suggestion. " " : ""). $workout->name. $bg. "'";
+		$result.= ($width ? " style='width: ". $width. "px'" : "");
+		$result.= ">". $val. "</div>";
+	}
 
 	return $result;
+}
+
+function fetch_routes() {
+	$routes = [];
+
+	$d = dir("routes");
+
+	while (($file = $d->read()) !== false) {
+		if ($file[0] != ".") {
+			$dot = strrpos($file, ".");
+			$ext = strtolower(substr($file, $dot));
+
+			if ($ext == ".html") {
+				$filename = substr($file, 0, $dot);
+
+				$ex = explode("-", $filename);
+
+				$routes[$ex[0]. "-". $ex[1]. "-". $ex[2]][$ex[3]] = $file;
+			}
+		}
+	}
+
+	return $routes;
 }
