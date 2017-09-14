@@ -4,8 +4,10 @@ defined("VALID_REF") or die();
 
 // PATHS
 
-define("ROOT",			"c:/xampp/htdocs/workout");
-define("DB_CONNECTOR",	"c:/xampp/security/workout/_connector.php");
+define("ROOT",				"c:/xampp/htdocs/workout");
+define("DB_CONNECTOR",		"c:/xampp/security/workout/_connector.php");
+
+define("PAGE_SIZE",			20);
 
 // VARIABLES
 

@@ -9,7 +9,8 @@ require_once "include/_init.php";
 
 $raw_args = $_GET["args"];
 
-$p->args = explode("/", str_replace(":", "/", $raw_args));
+//$p->args = explode("/", str_replace(":", "/", $raw_args));
+$p->args = explode("/", $raw_args);
 $p->page = array_shift($p->args);
 
 if ($p->args) {

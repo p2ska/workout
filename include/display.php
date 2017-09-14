@@ -74,6 +74,9 @@ else {
 		$row++;
 		$p->date = $date;
 
+		if ($row > PAGE_SIZE)
+			break;
+
 		list($yy, $mm, $dd) = explode("-", $date);
 
 		$wd = date("w", mktime(0, 0, 0, $mm, $dd, $yy));

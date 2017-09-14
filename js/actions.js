@@ -5,6 +5,7 @@ var current_graph	= false,
 
 var months = [ "jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember" ];
 
+/*
 $("#input").on("click", ".category", function() {
 	var that = $(this);
 	var category = that.prop("id");
@@ -14,7 +15,9 @@ $("#input").on("click", ".category", function() {
 
 	that.addClass("underline");
 });
+*/
 
+/*
 $("#input").on("click", ".workout", function() {
 	var id = $(this).data("id");
 
@@ -25,6 +28,7 @@ $("#input").on("click", ".workout", function() {
 
 	setTimeout(function() { $("input[type='text'], textarea").focus(); }, 100);
 });
+*/
 
 $("#period").on("click", ".period", function() {
 	var cp = $(this);
@@ -55,9 +59,18 @@ $("#period").on("click", ".period", function() {
 		}
 	}
 
-	//$("#graph").load("=graph/" + current_graph + "/" + current_period);
+	current_period = "";
 
-	//bake_cookie("period", current_period, 30);
+	$("#stats_period .month").each(function() {
+		if ($(this).hasClass("selected"))
+			current_period = current_period + ":" + $(this).data("year") + "-" + $(this).data("month");
+	});
+
+	current_period = current_period.substr(1);
+
+	$("#graph").load("=graph/" + current_graph + "/" + current_period);
+
+	bake_cookie("period", current_period, 30);
 });
 
 $("#results").on("click", ".descr:not(.date, .food, .route)", function() {
@@ -167,6 +180,7 @@ $("#results").on("focusout", ".edit_cell", function(e) {
 	});
 });
 
+/*
 $("#input").keypress(function(e) {
 	if (e.which == 13) {
 		var next_category = $("#save").data("next-category");
@@ -178,7 +192,9 @@ $("#input").keypress(function(e) {
 		setTimeout(function() { $("#workout_" + next_workout).trigger("click"); }, 100);
 	}
 });
+*/
 
+/*
 $("#input").on("click", "#save", function() {
 	var workout = $(this).data("workout");
 	var date = $("#date").val();
@@ -207,19 +223,15 @@ $("#input").on("click", "#save", function() {
 		}
 	});
 });
+*/
 
 $(document).ready(function() {
 	current_graph = parseInt(fetch_cookie("graph"));
-
-	//current_period = fetch_cookie("period");
-
-	//if (current_period != "week" && current_period != "month")
-
-	current_period = "year";
+	current_period = fetch_cookie("period");
 
 	$("#debug").load("=maintenance");
-	$("#input").load("=workout");
-	$("#stats_period").load("=stats_period");
+	/* $("#input").load("=workout"); */
+	$("#stats_period").load("=stats_period/" + current_period);
 
 	$("#results_header").load("=display/header", function() {
 		$("#results_body").load("=display/body/" + get_column_widths());
@@ -230,6 +242,6 @@ $(document).ready(function() {
 		if (current_graph)
 			$("#w_" + current_graph).addClass("active");
 
-		$("#period_" + current_period).addClass("active");
+		//$("#period_" + current_period).addClass("active");
 	});
 });

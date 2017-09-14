@@ -15,27 +15,32 @@ foreach ($d->get_all() as $r)
 if (!isset($workouts[$id]))
 	return false;
 
-$v = [ $id ];
+if (empty($p->args[1]))
+	$months = [ date("Y-m") ];
+else
+	$months = explode(":", $p->args[1]);
 
-if (isset($p->args[1]) && $p->args[1]) {
-	if ($p->args[1] == "week")
-		$start = time() - 7 * 86400;
-	elseif ($p->args[1] == "month")
-		$start = time() - 30 * 86400;
-	else
-		$start = 0;
+foreach ($months as $month) {
+	$q = "select * from workout where workout_id = ? && date like ? order by date";
+	$v = [ $id, $month. "-%" ];
 
-	$q = "select * from workout where workout_id = ? && date >= ? order by date";
+	$d->query($q, $v);
 
-	$v[] = date("Y-m-d", $start);
-}
-else {
-	$q = "select * from workout where workout_id = ? order by date";
-}
+	foreach ($d->get_all() as $o) {
+		if ($o->reps == 0 && $o->rounds == 0 && $o->descr == "")
+			continue;
 
-$d->query($q, $v);
+		list($yy, $mm, $dd) = explode("-", $o->date);
 
-if (false) {
+		$label[$o->date] = $dd;
+
+		if ($o->rounds)
+			$data[$o->date] = $o->rounds * $o->reps;
+		else
+			$data[$o->date] = $o->reps;
+	}
+
+	/*
 	$last_ts = false;
 
 	foreach ($d->get_all() as $o) {
@@ -61,7 +66,10 @@ if (false) {
 
 		$last_ts = $ts;
 	}
+	*/
 }
+
+/*
 else {
 	foreach ($d->get_all() as $o) {
 		if ($o->reps == 0 && $o->rounds == 0 && $o->descr == "")
@@ -77,6 +85,7 @@ else {
 			$data[$o->date] = $o->reps;
 	}
 }
+*/
 
 $color = hex_color($workouts[$id]->color);
 
