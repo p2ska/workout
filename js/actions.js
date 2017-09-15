@@ -69,6 +69,7 @@ $("#period").on("click", ".period", function() {
 	current_period = current_period.substr(1);
 
 	$("#graph").load("=graph/" + current_graph + "/" + current_period);
+	$("#stats_sum").load("=stats_sum/" + current_graph + "/" + current_period);
 
 	bake_cookie("period", current_period, 30);
 });
@@ -90,6 +91,7 @@ $("#results").on("click", ".descr:not(.date, .food, .route)", function() {
 		$(this).addClass("active");
 
 		$("#graph").load("=graph/" + current_graph + "/" + current_period);
+		$("#stats_sum").load("=stats_sum/" + current_graph + "/" + current_period);
 
 		bake_cookie("graph", current_graph, 30);
 	}
@@ -238,6 +240,7 @@ $(document).ready(function() {
 		$("#results").css("min-width", results_width);
 
 		$("#graph").load("=graph/" + current_graph + "/" + current_period);
+		$("#stats_sum").load("=stats_sum/" + current_graph + "/" + current_period);
 
 		if (current_graph)
 			$("#w_" + current_graph).addClass("active");

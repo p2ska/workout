@@ -15,6 +15,7 @@
 <!--<div id="input"></div>-->
 <div id="period">
 	<span id="stats_period"></span>
+	<span id="stats_sum"></span>
 </div>
 <div id="graph"></div>
 <div id="results">
