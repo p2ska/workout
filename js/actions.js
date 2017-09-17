@@ -173,8 +173,11 @@ $("#results").on("focusout", ".edit_cell", function(e) {
 			if (next_workout)
 				parent.next().trigger("click");
 
-			if (workout == current_graph)
+			if (workout == current_graph) {
 				$("#graph").load("=graph/" + current_graph + "/" + current_period);
+				$("#stats_sum").load("=stats_sum/" + current_graph + "/" + current_period);
+			}
+
 		}
 		else {
 			alert("FAILURE");
