@@ -3,9 +3,16 @@
 // andmebaasi klass
 
 class DATABASE {
-	var $connection, $host, $database, $charset, $collation, $query, $result, $error_msg, $error, $rows, $insert_id;
+	var $db, $host, $database, $charset, $collation, $query, $result, $error_msg, $error, $rows, $insert_id;
 
 	function connect($host = false, $database = false, $username = false, $password = false, $charset = false, $collation = false) {
+	    $this->db = new mysqli($host, $username, $password, false);
+
+		$this->db->select_db($database);
+
+		$this->db->query("set names '". $charset. "' collate '". $collation. "'");
+
+	    /*
 		if (!$this->connection = @mysql_connect($host, $username, $password, false))
 			die("Connection to database server has failed.<br/>". @mysql_error($this->connection));
 
@@ -14,14 +21,16 @@ class DATABASE {
 
 		if ($charset && $collation)
 			@mysql_query("set names '". $charset. "' collate '". $collation. "'");
+		*/
+
 	}
 
 	function switch_db($database, $charset = false, $collation = false) {
-		if (!@mysql_select_db($database, $this->connection))
-			die("Database not found.<br>". @mysql_error($this->connection));
+		if (!$this->dv->select_db($database))
+			die("Database not found.<br>". $this->db->error);
 
 		if ($charset && $collation)
-			$this->query("set names '". $charset. "' collate '". $collation. "'");
+			$this->db->query("set names '". $charset. "' collate '". $collation. "'");
 	}
 
 	function query($query, $values = false, $return = false) {
@@ -31,12 +40,9 @@ class DATABASE {
         $param = [];
 		$using = false;
 
-		if ($this->result)
-			@mysql_free_result($this->result);
-
 		$this->query = "prepare prep_query from '". $query. "'";
 
-		if (!$this->result = @mysql_query($this->query, $this->connection))
+		if (!$this->result = $this->db->query($this->query))
 			return $this->error();
 
 		if ($values) {
@@ -44,10 +50,10 @@ class DATABASE {
 				$values = [ $values ];
 
 			foreach ($values as $value) {
-				$this->query = "set @param". $param_count. " = '". mysql_real_escape_string($value). "'";
+				$this->query = "set @param". $param_count. " = '". $this->db->real_escape_string($value). "'";
 				$param[] = "@param". $param_count;
 
-				if (!$this->result = @mysql_query($this->query, $this->connection))
+				if (!$this->result = $this->db->query($this->query))
 					return $this->error();
 
 				$param_count++;
@@ -58,10 +64,13 @@ class DATABASE {
 
 		$this->query = "execute prep_query". $using;
 
-		$this->result = @mysql_query($this->query, $this->connection);
+		$this->result = $this->db->query($this->query);
 
-		$this->rows = @mysql_num_rows($this->result);
-		$this->insert_id = @mysql_insert_id($this->connection);
+        if (isset($this->result->num_rows))
+		    $this->rows = $this->result->num_rows;
+
+		if (isset($this->db->insert_id))
+		    $this->insert_id = $this->db->insert_id;
 
 		if ($return) {
 			if (is_string($return)) {
@@ -77,14 +86,14 @@ class DATABASE {
 			}
 		}
 
-		$this->error = @mysql_errno($this->connection);
-		$this->error_msg = @mysql_error($this->connection). " [". $this->query. "]";
+		$this->error = $this->db->errno;
+		$this->error_msg = $this->db->error. " [". $this->query. "]";
 
 		return $this->result;
 	}
 
 	function get_obj($field = false) {
-		$o = @mysql_fetch_object($this->result);
+		$o = $this->result->fetch_object();
 
 		if (is_string($field) && isset($o->{ $field }))
 			return $o->{ $field };
@@ -95,7 +104,7 @@ class DATABASE {
 	function get_all($field = false) {
 		$results = [];
 
-		while ($o = @mysql_fetch_object($this->result))
+		while ($o = $this->result->fetch_object())
 			if ($o) {
 				if (is_string($field) && isset($o->{ $field }))
 					$results[] = $o->{ $field };
@@ -107,20 +116,20 @@ class DATABASE {
 	}
 
 	function error() {
-		$this->error = @mysql_errno($this->connection);
-		$this->error_msg = @mysql_error($this->connection). " [". $this->query. "]";
+		$this->error = $this->db->errno;
+		$this->error_msg = $this->db->error. " [". $this->query. "]";
 
 		return false;
 	}
 
 	function free() {
-		@mysql_free_result($this->result);
+		$this->result->free();
 	}
 
     function close() {
 		$this->free();
 
-		@mysql_close($this->connection);
+		$this->db->close();
 	}
 }
 
