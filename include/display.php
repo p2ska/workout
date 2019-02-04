@@ -189,13 +189,13 @@ function results($d, $p, $workout, $value, $width = false) {
 				if ($workout->type == "rounds_reps") {
 					$next_rounds = $last->rounds;
 
-					if (in_array($workout->id, [ 2, 6, 8 ]))
+					if (in_array($workout->id, [ 2, 5, 6, 8 ]))
 						$next_reps = $last->reps;
 					else
 						$next_reps = $last->reps + 1;
 				}
 				else {
-					if (in_array($workout->id, [ 10, 15, 16, 17 ]))
+					if (in_array($workout->id, [ 10, 15, 16, 17, 20 ]))
 						$next_reps = $last->reps;
 					else
 						$next_reps = $last->reps + 1;
