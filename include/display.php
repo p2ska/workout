@@ -171,6 +171,9 @@ function results($d, $p, $workout, $value, $width = false) {
 			elseif ($days_ago >= $suggestions[0])
 				$suggestion = "mild";
 
+			if (in_array(date("N"), [ 6, 7 ]))
+				$suggestion = false;
+
 			/*
 			foreach ($latest as $l) {
 				if ($workout->type == "rounds_reps") {
@@ -189,13 +192,13 @@ function results($d, $p, $workout, $value, $width = false) {
 				if ($workout->type == "rounds_reps") {
 					$next_rounds = $last->rounds;
 
-					if (in_array($workout->id, [ 2, 5, 6, 8 ]))
+					if (in_array($workout->id, [ 2, 3, 5, 6, 8, 21 ]))
 						$next_reps = $last->reps;
 					else
 						$next_reps = $last->reps + 1;
 				}
 				else {
-					if (in_array($workout->id, [ 10, 15, 16, 17, 20 ]))
+					if (in_array($workout->id, [ 10, 15, 16, 17, 19, 20 ]))
 						$next_reps = $last->reps;
 					else
 						$next_reps = $last->reps + 1;
