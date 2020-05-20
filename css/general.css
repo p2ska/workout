@@ -82,18 +82,28 @@ body {
 	z-index: 			1;
 }
 
-#stats_period, #stats_sum {
+#stats_period, #stats_sum, #chain_wear_cube, #chain_wear_focus {
 	position:			relative;
 	float:				left;
 	margin-right:		20px;
 }
 
-#stats_sum {
+#stats_sum, #chain_wear_cube, #chain_wear_focus {
 	padding:			14px;
 	border: 			1px solid #fe0;
 	border-radius: 		1px 3px 3px 3px;
 	color: 				#fe0;
 	background-color: 	rgba(32, 32, 32, 0.9);
+}
+
+#chain_wear_cube {
+	border: 			1px solid #f4f;
+	color: 				#f4f;
+}
+
+#chain_wear_focus {
+	border: 			1px solid #4ff;
+	color: 				#4ff;
 }
 
 #results {

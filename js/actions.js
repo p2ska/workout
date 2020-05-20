@@ -237,6 +237,8 @@ $(document).ready(function() {
 	$("#debug").load("=maintenance");
 	/* $("#input").load("=workout"); */
 	$("#stats_period").load("=stats_period/" + current_period);
+	$("#chain_wear_cube").load("=chain_wear/cube");
+	$("#chain_wear_focus").load("=chain_wear/focus");
 
 	$("#results_header").load("=display/header", function() {
 		$("#results_body").load("=display/body/" + get_column_widths());

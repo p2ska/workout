@@ -15,6 +15,8 @@
 <div id="period">
 	<span id="stats_period"></span>
 	<span id="stats_sum"></span>
+    <span id="chain_wear_cube"></span>
+    <span id="chain_wear_focus"></span>
 </div>
 <div id="graph"></div>
 <div id="results">

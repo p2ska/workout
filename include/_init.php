@@ -47,6 +47,28 @@ function compare_strings($str1, $str2, $encoding = false) {
     return false;
 }
 
+function move_workout($d, $id, $to) {
+    $workouts = $d->query("select id, sort from workouts order by sort", false, true);
+
+    $count = 0;
+    $sorting = [];
+
+    foreach ($workouts as $workout) {
+        if ($workout->id == $id)
+            $sorting[$to * 10] = $workout->id;
+        else
+            $sorting[$count + 1] = $workout->id;
+
+        $count += 10;
+    }
+
+    $pos = 1;
+
+    for ($a = 0; $a < $count; $a++)
+        if (isset($sorting[$a]))
+            $d->query("update workouts set sort = ? where id = ? limit 1", [ $pos++, $sorting[$a] ]);
+}
+
 function clean_input($input, $in_length = 255, $out_length = 255) {
     $result = "";
 	$allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890;:+-_,. öäüõšžÖÄÜÕŠŽ";
