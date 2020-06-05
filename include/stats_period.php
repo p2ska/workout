@@ -20,15 +20,19 @@ else {
 		$selected[$date] = true;
 }
 
+$list = [];
+$count = 0;
+
 foreach ($d->get_all() as $o) {
 	list($y, $m) = explode("-", $o->date);
 
 	if (!$cy || $cy != $y) {
 		if ($cy)
-			echo "</div>";
+			$list[$count++] .= "</div>";
 
-		echo "<div id='period_". $y. "'>";
-		echo "<span id='year_". $y. "' class='period year' data-year='". $y. "' data-month=''>". $y. "</span>";
+		$list[$count] =
+            "<div id='period_". $y. "'>".
+		    "<span id='year_". $y. "' class='period year' data-year='". $y. "' data-month=''>". $y. "</span>";
 	}
 
 	if (isset($selected[$y. "-". $m]))
@@ -36,9 +40,12 @@ foreach ($d->get_all() as $o) {
 	else
 		$active = "";
 
-	echo "<span class='period month". $active. "' data-year='". $y. "' data-month='". $m. "'>". $m. "</span>";
+	$list[$count] .= "<span class='period month". $active. "' data-year='". $y. "' data-month='". $m. "'>". $m. "</span>";
 
 	$cy = $y;
 }
 
-echo "</div>";
+$list[$count] .= "</div>";
+
+foreach (array_reverse($list) as $year)
+    echo $year;

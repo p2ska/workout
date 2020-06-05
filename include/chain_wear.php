@@ -1,6 +1,13 @@
 <?php
 
-echo $p->args[0]. ": ". chain_wear($d, $p->args[0]);
+$km = chain_wear($d, $p->args[0]);
+
+if ($km >= 1400)
+    $km = "<span style='color: #f00; text-decoration: underline'>". $km. "</span>";
+elseif ($km == 0)
+    $km = "?";
+
+echo $p->args[0]. " chain: ". $km. " km";
 
 //move_workout($d, 23, 9);
 
