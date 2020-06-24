@@ -7,7 +7,7 @@ if ($km >= 1500)
 elseif ($km == 0)
     $km = "?";
 
-echo $p->args[0]. " chain: ". $km. " km";
+echo $p->args[0]. " ketivahetusest: ". $km. " km";
 
 //move_workout($d, 23, 9);
 

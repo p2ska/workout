@@ -33,7 +33,7 @@ foreach ($months as $month) {
 	}
 }
 
-echo "total: ". $total;
+echo "kokku: ". $total;
 
 if ($workout->weight) {
 	if ($workout->unit)
