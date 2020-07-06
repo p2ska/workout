@@ -20,8 +20,14 @@ else
 	$months = explode(":", $p->args[1]);
 
 foreach ($months as $month) {
-	$q = "select rounds, reps from workout where workout_id = ? && date like ? order by date";
-	$v = [ $id, $month. "-%" ];
+    if ($id == 11 || $id == 23) {
+	    $q = "select rounds, reps from workout where (workout_id = ? || workout_id = ?) && date like ? order by date";
+	    $v = [ 11, 23, $month. "-%" ];
+    }
+    else {
+        $q = "select rounds, reps from workout where workout_id = ? && date like ? order by date";
+        $v = [ $id, $month. "-%" ];
+    }
 
 	$d->query($q, $v);
 
