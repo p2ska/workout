@@ -9,7 +9,7 @@ elseif ($km == 0)
 
 echo $p->args[0]. " ketivahetusest: ". $km. " km";
 
-//move_workout($d, 23, 9);
+//move_workout($d, 11, 7);
 
 function chain_wear($d, $bike_name) {
     $km = false;

@@ -152,3 +152,12 @@ hr {
 .underline {
 	text-decoration: 	underline;
 }
+
+#load_more {
+	color: #666;
+	cursor: pointer;
+}
+
+#load_more > i:hover {
+	color: #09f;
+}

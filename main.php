@@ -22,6 +22,7 @@
 <div id="results">
 	<div id="results_header"></div>
 	<div id="results_body"></div>
+    <!--<div id="load_more"><i class="fa fa-chevron-circle-down fa-2x"></i></div>-->
 </div>
 <div id="debug"></div>
 </body>

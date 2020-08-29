@@ -5,9 +5,8 @@ $p->colors = [ "#eef", "#bbf", "#cfc" ];
 
 $d->query("select * from workouts order by sort");
 
-foreach ($d->get_all() as $o) {
+foreach ($d->get_all() as $o)
 	$workouts_id[$o->id] = $workouts[$o->sort] = $o;
-}
 
 if (isset($p->args[0]) && $p->args[0] == "element") {
 	$id = intval($p->args[1]);

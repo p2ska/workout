@@ -7,7 +7,7 @@ defined("VALID_REF") or die();
 define("ROOT",				"c:/xampp/htdocs/workout");
 define("DB_CONNECTOR",		"c:/xampp/security/workout/_connector.php");
 
-define("PAGE_SIZE",			20);
+define("PAGE_SIZE",			50);
 
 // VARIABLES
 
